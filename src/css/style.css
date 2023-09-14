@@ -1,10 +1,19 @@
+/*Estilo de toda la pagina*/
 html {
     background-color: #131313;
+    font-family: 'Hack Nerd Font', monospace;
+    margin-right: 250px; /* Margen de 10 píxeles a la derecha */
+    margin-left: 250px; /* Margen de 10 píxeles a la izquierda */
 }
 
 header h1 {
-    color: #86868b;
+    color: #2b2b2b;
     text-align: center
+}
+
+header h2 {
+    color: #86868b;
+    text-align:center;
 }
 
 /* Estilo para el nav */
@@ -40,8 +49,38 @@ nav a:hover {
     color: #FFF; /* Cambia el color del texto a blanco al pasar el mouse */
 }
 
+#content{
+    text-align: center;
+}
+
+.registro {
+    max-width: 400px; /* Ancho máximo para el formulario */
+    margin: 0 auto; /* Centrar el formulario en el contenedor */
+}
+
+.registro div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px; /* Espacio entre cada par de label e input */
+}
+
+.registro label {
+    width: 50%; /* Ocupa todo el ancho disponible */
+    text-align: right; /* Alinea el texto del label a la derecha */
+    margin-bottom: 5px; /* Espacio entre el label y el input */
+}
+
+.registro input {
+    width: 50%;
+    background-color: #FFF;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 5px; /* Espaciado interior del input */
+}
+
+
 
 footer h6 {
     color: #86868b;
     text-align: center
 }
+

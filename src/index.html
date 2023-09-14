@@ -11,7 +11,7 @@
         {
             event.preventDefault();
             $.ajax({
-                url: "html/" + opcion + ".html", // Cambiar la extensión a .html
+                url: opcion, // Cambiar la extensión a .html
                 method: "GET",
                 success: function (data) 
                 {
@@ -28,13 +28,19 @@
 <body>
     <header>
         <h1>Cine Nómada</h1>
+        <h2>El mejor cine pirata</h2>
     </header>
 
     <nav>
         <ul>
-            <li><a href="" onclick="cargarContenido('inicio', event)">Inicio</a></li>
-            <li><a href="" onclick="cargarContenido('catalogo', event)">Catálogo</a></li>
-            <li><a href="" onclick="cargarContenido('subir', event)">Subir</a></li>
+            <li><a href="" onclick="cargarContenido('html/inicio.html', event)">Inicio</a></li>
+            <li><a href="" onclick="cargarContenido('php/catalogo.php', event)">Catálogo</a></li>
+            <li><a href="" onclick="cargarContenido('php/subir.php', event)">Subir</a></li>
+            <li><a href="" onclick="cargarContenido('html/faq.html', event)">FAQ</a></li>
+        </ul>
+        <ul>
+            <li><a href="" onclick="cargarContenido('html/login.html', event)">Iniciar Sesion</a></li>
+            <li><a href="" onclick="cargarContenido('html/register.html', event)">Registrarse</a></li>
         </ul>
     </nav>
 
