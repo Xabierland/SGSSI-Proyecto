@@ -2,8 +2,8 @@
 html {
     background-color: #131313;
     font-family: 'Hack Nerd Font', monospace;
-    margin-right: 250px; /* Margen de 10 píxeles a la derecha */
-    margin-left: 250px; /* Margen de 10 píxeles a la izquierda */
+    margin-right: 10%; /* Margen de 10 píxeles a la derecha */
+    margin-left: 10%; /* Margen de 10 píxeles a la izquierda */
 }
 
 header h1 {
