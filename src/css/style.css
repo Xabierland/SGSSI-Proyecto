@@ -1,0 +1,47 @@
+html {
+    background-color: #131313;
+}
+
+header h1 {
+    color: #86868b;
+    text-align: center
+}
+
+/* Estilo para el nav */
+nav {
+    color: #FFA500; /* Texto naranja */
+    padding: 10px 0; /* Espaciado interior arriba y abajo */
+}
+
+/* Estilo para la lista de navegación */
+nav ul {
+    list-style-type: none; /* Quita los marcadores de lista */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Muestra los elementos en línea */
+    justify-content: center; /* Centra horizontalmente los elementos */
+}
+
+/* Estilo para los elementos de la lista */
+nav li {
+    margin: 0 20px; /* Espaciado horizontal entre elementos */
+}
+
+/* Estilo para los enlaces en el nav */
+nav a {
+    text-decoration: none; /* Quita la subrayado de los enlaces */
+    color: #FFA500; /* Color del texto naranja */
+    font-weight: bold; /* Texto en negrita */
+    transition: color 0.3s; /* Transición de color suave */
+}
+
+/* Estilo para cambiar el color del enlace al pasar el mouse */
+nav a:hover {
+    color: #FFF; /* Cambia el color del texto a blanco al pasar el mouse */
+}
+
+
+footer h6 {
+    color: #86868b;
+    text-align: center
+}
