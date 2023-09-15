@@ -1,25 +1,46 @@
-document.addEventListener("DOMContentLoaded", function () {
-    var btnEnviar = document.getElementById("btnEnviar");
+import * as validaciones from './validar.js';
 
-    btnEnviar.addEventListener("click", function () {
-        // Realiza la validación de los campos aquí
-        var nombre = document.getElementById("nombre").value;
-        var apellidos = document.getElementById("apellidos").value;
-        var passwd = document.getElementById("passwd").value;
-        var dni = document.getElementById("dni").value;
-        var fechaNacimiento = document.getElementById("fecha_nacimiento").value;
-        var email = document.getElementById("email").value;
-        var telefono = document.getElementById("telefono").value;
+export function enviarFormulario() {
+    var passwd = document.getElementById("passwd").value;
+    var dni = document.getElementById("dni").value;
+    var email = document.getElementById("email").value;
+    var telefono = document.getElementById("telefono").value;
 
-        // Puedes agregar tu lógica de validación aquí
-        // Por ejemplo, verifica si los campos están llenos y si el formato es correcto
+    // Realiza tus validaciones aquí
+    var valid = false;
 
-        // Si la validación es exitosa, puedes enviar el formulario
-        if (nombre && apellidos && passwd && dni && fechaNacimiento && email && telefono) {
-            document.getElementById("registro-form").submit();
-        } else {
-            // Muestra un mensaje de error o realiza otras acciones de validación
-            alert("Por favor, complete todos los campos correctamente.");
-        }
-    });
-});
+    if (!validaciones.validarContrasena(passwd)) {
+        alert("Error en contraseña");
+    } else if (!validaciones.validarCorreoElectronico(email)) {
+        alert("Error en email");
+    } else if (!validaciones.validarDNI(dni)) {
+        alert("Error en DNI");
+    } else if (!validaciones.validarNumeroTelefono(telefono)) {
+        alert("Error en Telefono");
+    } else {
+        valid = true;
+    }
+
+    if (valid) {
+        // Recopila los datos del formulario
+        var formData = new FormData(document.getElementById("registro-form"));
+
+        $.ajax({
+            url: "../php/register.php",
+            method: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                // Maneja la respuesta del servidor (puede ser una redirección, mensaje de éxito, etc.)
+                console.log(data);
+            },
+            error: function () {
+                alert("Error al enviar el formulario.");
+            }
+        });
+    } else {
+        alert('Existen datos incorrectos.');
+    }
+}
+
