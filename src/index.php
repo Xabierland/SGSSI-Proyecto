@@ -1,3 +1,7 @@
+<?php
+session_start(); // Inicia la sesión PHP
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,7 +10,9 @@
     <title>Cine Nómada</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="module" src="js/register.js"></script>   
+    <script src="js/validar.js"></script>  
+    <script src="js/login.js"></script>   
+    <script src="js/register.js"></script>   
     <script>
         function cargarContenido(opcion, event) 
         {
@@ -29,7 +35,7 @@
 <body>
     <header>
         <h1>Cine Nómada</h1>
-        <h2>El mejor cine pirata</h2>
+        <h2>El mejor cine</h2>
     </header>
 
     <nav>
@@ -39,8 +45,17 @@
             <li><a href="" onclick="cargarContenido('html/faq.html', event)">FAQ</a></li>
         </ul>
         <ul>
-            <li><a href="" onclick="cargarContenido('html/login.html', event)">Iniciar Sesion</a></li>
-            <li><a href="" onclick="cargarContenido('html/register.html', event)">Registrarse</a></li>
+        <?php
+            if (isset($_SESSION['user_id'])) {
+                // Si hay una sesión activa, muestra el enlace para cerrar sesión
+                echo '<li><a href="" onclick="cargarContenido(\'php/profile.php\', event)">Perfil</a></li>';
+                echo '<li><a href="" onclick="cargarContenido(\'php/logout.php\', event)">Cerrar Sesión</a></li>';
+            } else {
+                // Si no hay sesión activa, muestra el enlace para iniciar sesión y registrarse
+                echo '<li><a href="" onclick="cargarContenido(\'html/login.html\', event)">Iniciar Sesión</a></li>';
+                echo '<li><a href="" onclick="cargarContenido(\'html/register.html\', event)">Registrarse</a></li>';
+            }
+            ?>
         </ul>
     </nav>
 

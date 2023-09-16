@@ -1,37 +1,28 @@
-//import * as validaciones from './validar.js';
+console.log('Login Script Loaded');
 
-console.log('Register Script Loaded');
-
-function enviarFormulario() {
-
-    console.log('Register Script Activated');
+function iniciarSesion() {
+    console.log('Login Script Activated');
 
     var passwd = document.getElementById("passwd").value;
-    var dni = document.getElementById("dni").value;
     var email = document.getElementById("email").value;
-    var telefono = document.getElementById("telefono").value;
 
     // Realiza tus validaciones aquí
     var valid = false;
 
     if (!validarContrasena(passwd)) {
-        alert("Error en contraseña. \nLa contraseña debe contar con 8 caracteres entre los cuales debe de haber minusculas, mayusculas, numeros y signos especiales [!@#$%^&*].");
-    } else if (!validarDNI(dni)) {
-        alert("Error en DNI.");
+        alert("Error en contraseña. \nLa contraseña debe contar con 8 caracteres entre los cuales debe de haber minúsculas, mayúsculas, números y signos especiales [!@#$%^&*].");
     } else if (!validarCorreoElectronico(email)) {
-        alert("Error en email, verifica el formato");
-    } else if (!validarNumeroTelefono(telefono)) {
-        alert("Error en Telefono");
+        alert("Error en email, verifica el formato.");
     } else {
         valid = true;
     }
 
     if (valid) {
         // Recopila los datos del formulario
-        var formData = new FormData(document.getElementById("registro-form"));
+        var formData = new FormData(document.getElementById("login-form"));
 
         $.ajax({
-            url: "../php/register.php",
+            url: "../php/login.php", // Cambiar la URL de destino
             method: "POST",
             data: formData,
             processData: false,

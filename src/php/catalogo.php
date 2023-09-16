@@ -23,9 +23,9 @@ if ($result->num_rows > 0) {
         echo "<td>" . $row["id"] . "</td>";
         echo "<td>" . $row["titulo"] . "</td>";
         echo "<td>" . $row["autor"] . "</td>";
-        echo "<td>" . $row["duracion"] . "</td>";
+        echo "<td>" . $row["duracion"] . " min.</td>";
         echo "<td>" . $row["fechaSalida"] . "</td>";
-        echo "<td>" . $row["calidad"] . "</td>";
+        echo "<td>" . $row["calidad"] . "p</td>";
         echo "</tr>";
     }
     echo '</table>';

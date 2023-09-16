@@ -1,0 +1,19 @@
+<div class="login">
+    <h2>Formulario de Inicio de Sesión</h2>
+    <form id="login-form" action="../php/login.php" method="post">
+        <table>
+            <tr>
+                <td><label for="email">Correo Electrónico:</label></td>
+                <td><input type="email" id="email" name="email" required></td>
+            </tr>
+            <tr>
+                <td><label for="passwd">Contraseña:</label></td>
+                <td><input type="password" id="passwd" name="passwd" required></td>
+            </tr>
+        </table>
+        <div>
+            <br>
+            <button id="btnEnviar" name="btnEnviar" type="summit" onclick="iniciarSesion()">Iniciar Sesión</button>
+        </div>
+    </form>
+</div>

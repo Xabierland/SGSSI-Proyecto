@@ -15,10 +15,10 @@ $sql = "INSERT INTO usuarios (nombre, apellidos, passwd, dni, fechaN, email, tel
 VALUES ('$nombre', '$apellidos', '$passwd', '$dni', '$fechaNacimiento', '$email', '$telefono')";
 
 if ($conn->query($sql) === TRUE) {
-    header("Location: ../index.html"); // Redirigir al usuario a index.html
+    echo "Registrado con exito";
     exit();
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $conn->error;
 }
 
 // Cerrar la conexión

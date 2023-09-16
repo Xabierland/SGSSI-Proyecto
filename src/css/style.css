@@ -56,6 +56,41 @@ nav a:hover {
     padding: 10px;
 }
 
+.login {
+    max-width: 400px; /* Ancho máximo para el formulario */
+    margin: 0 auto; /* Centrar el formulario en el contenedor */
+}
+
+.login div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px; /* Espacio entre cada par de label e input */
+}
+
+.login table label {
+    width: 50%; /* Ocupa todo el ancho disponible */
+    text-align: right; /* Alinea el texto del label a la derecha */
+    margin-bottom: 5px; /* Espacio entre el label y el input */
+}
+
+.login table input {
+    width: 50%;
+    background-color: #FFF;
+    color: #131313;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 5px; /* Espaciado interior del input */
+}
+
+.login table input::placeholder {
+    color: #86868b;
+}
+
+.login input {
+    width: 50%;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 5px; /* Espaciado interior del input */
+}
+
 .registro {
     max-width: 400px; /* Ancho máximo para el formulario */
     margin: 0 auto; /* Centrar el formulario en el contenedor */
@@ -146,9 +181,6 @@ nav a:hover {
 #buscador::placeholder {
     color: #999; /* Color del texto de marcador de posición */
 }
-
-
-
 
 footer h6 {
     color: #86868b;
