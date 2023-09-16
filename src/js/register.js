@@ -1,6 +1,11 @@
 import * as validaciones from './validar.js';
 
-export function enviarFormulario() {
+console.log('Register Script Loaded')
+
+function enviarFormulario() {
+
+    alert('Register Script Activated')
+
     var passwd = document.getElementById("passwd").value;
     var dni = document.getElementById("dni").value;
     var email = document.getElementById("email").value;
@@ -43,4 +48,3 @@ export function enviarFormulario() {
         alert('Existen datos incorrectos.');
     }
 }
-
