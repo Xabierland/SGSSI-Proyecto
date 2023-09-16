@@ -49,6 +49,7 @@ session_start(); // Inicia la sesión PHP
             if (isset($_SESSION['user_id'])) {
                 // Si hay una sesión activa, muestra el enlace para cerrar sesión
                 echo '<li><a href="" onclick="cargarContenido(\'php/profile.php\', event)">Perfil</a></li>';
+                echo '<li><a href="" onclick="cargarContenido(\'html/peliculas.html\', event)">Subir Pelicula</a></li>';
                 echo '<li><a href="" onclick="cargarContenido(\'php/logout.php\', event)">Cerrar Sesión</a></li>';
             } else {
                 // Si no hay sesión activa, muestra el enlace para iniciar sesión y registrarse

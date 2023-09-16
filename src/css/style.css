@@ -126,6 +126,35 @@ nav a:hover {
     padding: 5px; /* Espaciado interior del input */
 }
 
+/* Estilos para el formulario de películas */
+.peliculas {
+    max-width: 400px; /* Ancho máximo para el formulario */
+    margin: 0 auto; /* Centrar el formulario en el contenedor */
+}
+
+.peliculas div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px; /* Espacio entre cada par de label e input */
+}
+
+.peliculas table label {
+    width: 50%; /* Ocupa todo el ancho disponible */
+    text-align: right; /* Alinea el texto del label a la derecha */
+    margin-bottom: 5px; /* Espacio entre el label y el input */
+}
+
+.peliculas table input {
+    width: 50%;
+    background-color: #FFF;
+    color: #131313;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 5px; /* Espaciado interior del input */
+}
+
+.pelic
+
+
 /* Estilos para la tabla */
 .catalogo table {
     width: 100%;

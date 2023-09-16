@@ -1,6 +1,7 @@
 console.log('Login Script Loaded');
 
 function iniciarSesion() {
+
     console.log('Login Script Activated');
 
     var passwd = document.getElementById("passwd").value;
@@ -22,14 +23,15 @@ function iniciarSesion() {
         var formData = new FormData(document.getElementById("login-form"));
 
         $.ajax({
-            url: "../php/login.php", // Cambiar la URL de destino
+            url: "../php/login.php",
             method: "POST",
             data: formData,
             processData: false,
             contentType: false,
             success: function (data) {
                 // Maneja la respuesta del servidor (puede ser una redirección, mensaje de éxito, etc.)
-                alert(data);
+                console.log(data);
+                location.reload();
             },
             error: function () {
                 alert("Error al enviar el formulario.");

@@ -1,5 +1,3 @@
-//import * as validaciones from './validar.js';
-
 console.log('Register Script Loaded');
 
 function enviarFormulario() {
@@ -39,6 +37,7 @@ function enviarFormulario() {
             success: function (data) {
                 // Maneja la respuesta del servidor (puede ser una redirección, mensaje de éxito, etc.)
                 alert(data);
+                location.reload();
             },
             error: function () {
                 alert("Error al enviar el formulario.");

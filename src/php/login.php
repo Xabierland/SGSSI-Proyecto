@@ -20,7 +20,7 @@ if ($result->num_rows > 0) {
     $_SESSION['user_id'] = $row['id'];
 
     // Guarda la variable 'admin' en la sesión (puedes cambiar 'admin' por lo que necesites)
-    $_SESSION['admin'] = $row['es_admin'];
+    $_SESSION['admin'] = $row['admin'];
 
     echo "Inicio de sesión exitoso";
 } else {
@@ -30,5 +30,5 @@ if ($result->num_rows > 0) {
 
 // Cerrar la conexión
 $conn->close();
-exit();
+exit;
 ?>

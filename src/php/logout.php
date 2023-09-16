@@ -1,5 +1,6 @@
 <?php
 session_start();
 session_destroy();
-exit();
+echo "<script>location.reload();</script>";
+exit;
 ?>
