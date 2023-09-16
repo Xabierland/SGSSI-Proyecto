@@ -23,7 +23,6 @@ if ($result->num_rows > 0) {
     $_SESSION['admin'] = $row['es_admin'];
 
     echo "Inicio de sesión exitoso";
-
 } else {
     // Credenciales incorrectas
     echo "Inicio de sesión fallido";
@@ -31,4 +30,5 @@ if ($result->num_rows > 0) {
 
 // Cerrar la conexión
 $conn->close();
+exit();
 ?>

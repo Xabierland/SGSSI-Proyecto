@@ -16,11 +16,11 @@ VALUES ('$nombre', '$apellidos', '$passwd', '$dni', '$fechaNacimiento', '$email'
 
 if ($conn->query($sql) === TRUE) {
     echo "Registrado con exito";
-    exit();
 } else {
     echo "Error: " . $conn->error;
 }
 
 // Cerrar la conexión
 $conn->close();
+exit();
 ?>
