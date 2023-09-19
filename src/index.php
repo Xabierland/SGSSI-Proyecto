@@ -62,6 +62,9 @@ session_start(); // Inicia la sesión PHP
 
     <div id="content">
         <!-- Aquí se cargará el contenido dinámico -->
+        <h3>Explora el mundo a través del cine</h3>
+        <p>¿Listo para un viaje cinemático inolvidable?</p>
+        <p>En "Cine Nómada," llevamos la pasión por el cine a nuevas alturas. Somos más que un videoclub; somos una puerta abierta a un universo de historias, géneros y culturas.</p>
     </div>
 
     <footer>

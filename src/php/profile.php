@@ -29,7 +29,8 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                 WHERE id = $userId";
 
         if ($conn->query($sql) === TRUE) {
-            echo "Los datos del usuario se actualizaron correctamente.";
+            header('Location: ../.');
+            exit;   
         } else {
             echo "Error al actualizar los datos del usuario: " . $conn->error;
         }
@@ -42,9 +43,9 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         // Mostrar los detalles del usuario con formularios para editar
-        echo '<div class="form profile>"';
+        echo '<div class="form profile">';
         echo '<h2>Detalles del Usuario</h2>';
-        echo '<form method="POST">';
+        echo '<form action="php/profile.php?id=' . $userId . '" method="POST">';
         echo '<table>';
         echo '<tr><td>Nombre:</td><td><input type="text" name="nombre" value="' . $row["nombre"] . '"></td></tr>';
         echo '<tr><td>Apellidos:</td><td><input type="text" name="apellidos" value="' . $row["apellidos"] . '"></td></tr>';

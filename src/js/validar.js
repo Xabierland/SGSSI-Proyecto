@@ -23,10 +23,28 @@ function validarContrasena(contrasena) {
     return regex.test(contrasena);
 }
 
-function validarDNI(dni) {
-    // Expresión regular para validar números de DNI Español
-    var regex = /^\d{8}[A-Z]$/;
+function validarDNI(nif) {
+    // Expresión regular para validar un NIF español
+    var regex = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/i;
 
     // Utiliza test() para verificar si el número cumple con la expresión regular
-    return regex.test(dni);
+    if (!regex.test(nif)) {
+        return false; // El formato del NIF es incorrecto
+    }
+
+    // Obtiene los números del NIF (los primeros 8 caracteres)
+    var numerosNIF = nif.substr(0, 8);
+
+    // Obtiene la letra proporcionada en el NIF (el último carácter)
+    var letraProporcionada = nif.charAt(8).toUpperCase();
+
+    // Array con las letras correspondientes a los números del NIF
+    var letrasNIF = 'TRWAGMYFPDXBNJZSQVHLCKE';
+
+    // Calcula la letra correcta para los números del NIF
+    var letraCorrecta = letrasNIF[numerosNIF % 23];
+
+    // Compara la letra proporcionada con la letra correcta
+    return letraProporcionada === letraCorrecta;
 }
+
