@@ -66,3 +66,7 @@ docker volume prune
 User: admin
 Passwd: test
 ```
+
+# TO DO
+
+* Verificar que al actualizar los datos del usuario se siguen manteniendo las validaciones.

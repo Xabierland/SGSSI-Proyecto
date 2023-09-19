@@ -30,7 +30,7 @@ function iniciarSesion() {
             contentType: false,
             success: function (data) {
                 // Maneja la respuesta del servidor (puede ser una redirección, mensaje de éxito, etc.)
-                console.log(data);
+                alert(data);
                 location.reload();
             },
             error: function () {

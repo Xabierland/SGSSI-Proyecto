@@ -22,13 +22,16 @@ if ($result->num_rows > 0) {
     // Guarda la variable 'admin' en la sesión (puedes cambiar 'admin' por lo que necesites)
     $_SESSION['admin'] = $row['admin'];
 
+    // Credenciales correctas
     echo "Inicio de sesión exitoso";
+    // Cerrar la conexión
+    $conn->close();
+    exit;
+    
 } else {
     // Credenciales incorrectas
     echo "Inicio de sesión fallido";
+    // Cerrar la conexión
+    $conn->close(); 
 }
-
-// Cerrar la conexión
-$conn->close();
-exit;
 ?>
