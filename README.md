@@ -8,22 +8,61 @@ Proyecto de la asignatura SGSSI del curso 2023-2024
 *
 *
 
-## Instalacion
+## Instalacion y uso
 
-1. Descargamos el repositorio. ```git clone -b entrega_1 https://github.com/Xabierland/SGSSI-Proyecto.git```
+1. Descargamos el repositorio.
 
-2. Nos movemos a la carpeta. ```cd SGSSI-Proyecto```
+```bash
+git clone -b entrega_1 https://github.com/Xabierland/SGSSI-Proyecto.git
+```
 
-3. Creamos la imagen a partir del 'dockerfile'. ```docker build --pull --rm -f "dockerfile" -t web "."```
+2. Nos movemos a la carpeta.
 
-4. Levantamos el servicio mediante el 'docker-compose.yml' ```docker compose -f "docker-compose.yml" up -d --build```
+```bash
+cd SGSSI-Proyecto
+```
 
-5. Listo
+3. Creamos la imagen a partir del 'dockerfile'.
 
-## Otros comandos
+```bash
+docker build --pull --rm -f "dockerfile" -t web "."
+```
 
-* Tirar el servicio: ```docker compose -f "docker-compose.yml" down```
+4. Levantamos el servicio mediante el 'docker-compose.yml'
 
-* Devolver docker a fabrica: ```docker system prune -a```
+```bash
+docker compose -f "docker-compose.yml" up -d --build
+```
 
-* Borrar todos los volumenes: ```docker volume prune```
+5. Entramos a phpMyAdmin mediante localhost:8890
+
+6. Importamos "database.sql"
+
+7. Listo
+
+## FAQ
+
+* Tirar el servicio:
+
+```bash
+docker compose -f "docker-compose.yml" down
+```
+
+* Devolver docker a fabrica:
+
+```bash
+docker system prune -a
+```
+
+* Borrar todos los volumenes:
+
+```bash
+docker volume prune
+```
+
+* ¿Credenciales de phpMyAdmin?
+
+```
+User: admin
+Passwd: test
+```
