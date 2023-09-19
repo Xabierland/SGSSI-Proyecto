@@ -1,7 +1,7 @@
 <?php
 include 'bdcon.php';
 
-// Consulta SQL para obtener los usuarios
+// Consulta SQL para obtener las películas
 $sql = "SELECT * FROM peliculas";
 $result = $conn->query($sql);
 
@@ -10,7 +10,6 @@ if ($result->num_rows > 0) {
     echo '<div class="catalogo">';
     echo '<table>';
     echo '<tr>';
-    echo '<th>ID</th>';
     echo '<th>Título</th>';
     echo '<th>Autor</th>';
     echo '<th>Duración</th>';
@@ -20,8 +19,9 @@ if ($result->num_rows > 0) {
     // Mostrar los datos en la tabla
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
-        echo "<td>" . $row["id"] . "</td>";
-        echo "<td>" . $row["titulo"] . "</td>";
+        // Modificar el título para que sea un enlace a pelicula.php con el ID de la película como parámetro
+        // Modificar el título para que llame a la función cargarContenido con el ID de la película como parámetro
+        echo "<td><a href='#' onclick='cargarContenido(\"php/pelicula.php?id=" . $row["id"] . "\", event)'>" . $row["titulo"] . "</a></td>";
         echo "<td>" . $row["autor"] . "</td>";
         echo "<td>" . $row["duracion"] . " min.</td>";
         echo "<td>" . $row["fechaSalida"] . "</td>";
@@ -37,6 +37,7 @@ if ($result->num_rows > 0) {
 // Cerrar la conexión
 $conn->close();
 ?>
+
 
 <!-- Script para el buscador AJAX -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
