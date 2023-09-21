@@ -25,13 +25,13 @@ cd SGSSI-Proyecto
 3. Creamos la imagen a partir del 'dockerfile'.
 
 ```bash
-docker build --pull --rm -f "dockerfile" -t web "."
+docker build -t="web" .
 ```
 
 4. Levantamos el servicio mediante el 'docker-compose.yml'
 
 ```bash
-docker compose -f "docker-compose.yml" up -d --build
+docker-compose up
 ```
 
 5. Entramos a phpMyAdmin mediante localhost:8890
