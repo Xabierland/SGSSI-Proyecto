@@ -45,7 +45,7 @@ docker-compose up
 * Tirar el servicio:
 
 ```bash
-docker compose -f "docker-compose.yml" down
+docker-compose down
 ```
 
 * Devolver docker a fabrica:
