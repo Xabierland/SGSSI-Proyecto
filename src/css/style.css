@@ -149,8 +149,14 @@ nav a:hover {
     color: #999; /* Color del texto de marcador de posición */
 }
 
-footer h6 {
+footer 
+{
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+footer a {
     color: #86868b;
-    text-align: center
 }
 

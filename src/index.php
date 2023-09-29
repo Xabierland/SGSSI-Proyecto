@@ -68,7 +68,7 @@ session_start(); // Inicia la sesión PHP
     </div>
 
     <footer>
-        <h6>Creado por Xabier Gabiña</h6>
+        <a href="https://github.com/Xabierland/SGSSI-Proyecto">Github</a>
     </footer>
 </body>
 </html>

@@ -53,6 +53,14 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         echo '</table>';
         echo '<input type="submit" name="actualizar" value="Guardar Cambios">';
         echo '</form>';
+        // Botón para eliminar la película
+        echo '<form action="php/borrar.php" method="POST">';
+        echo '<input type="hidden" name="id_pelicula" value="' . $_GET['id'] . '">';
+        echo '<input type="submit" name="eliminar" value="Eliminar Película">';
+        echo '</form>';
+
+        echo '</form>';
+        echo '</div>';
         echo '</div>';
     } else {
         echo "No se encontraron detalles para esta película.";
