@@ -5,8 +5,8 @@ Proyecto de la asignatura SGSSI del curso 2023-2024
 ## Miembros
 
 * Xabier Gabiña Barañano
-*
-*
+* Marcos Martín Paniagua
+* Ainhize Martinez Duran
 
 ## Instalacion y uso
 
@@ -66,7 +66,3 @@ docker volume prune
 User: admin
 Passwd: test
 ```
-
-# TO DO
-
-* Verificar que al actualizar los datos del usuario se siguen manteniendo las validaciones.
