@@ -5,8 +5,8 @@ Proyecto de la asignatura SGSSI del curso 2023-2024
 ## Miembros
 
 * Xabier Gabiña Barañano
-*
-*
+* Marcos Martín Paniagua
+* Ainhize Martinez Duran
 
 ## Instalacion y uso
 
