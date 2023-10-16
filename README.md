@@ -10,35 +10,29 @@ Proyecto de la asignatura SGSSI del curso 2023-2024
 
 ## Instalacion y uso
 
-1. Descargamos el repositorio.
+### 1. Descargamos el repositorio
 
 ```bash
 git clone -b entrega_1 https://github.com/Xabierland/SGSSI-Proyecto.git
 ```
 
-2. Nos movemos a la carpeta.
+### 2. Nos movemos a la carpeta
 
 ```bash
 cd SGSSI-Proyecto
 ```
 
-3. Creamos la imagen a partir del 'dockerfile'.
-
-```bash
-docker build -t="web" .
-```
-
-4. Levantamos el servicio mediante el 'docker-compose.yml'
+### 3. Levantamos el servicio mediante el 'docker-compose.yml'
 
 ```bash
 docker-compose up
 ```
 
-5. Entramos a phpMyAdmin mediante localhost:8890
+### 4. Entramos a phpMyAdmin mediante localhost:8890
 
-6. Importamos "database.sql"
+### 5. Importamos "database.sql"
 
-7. Listo
+### 6. Listo
 
 ## FAQ
 
@@ -62,7 +56,7 @@ docker volume prune
 
 * ¿Credenciales de phpMyAdmin?
 
-```
+```text
 User: admin
 Passwd: test
 ```
