@@ -8,11 +8,20 @@
             </tr>
             <tr>
                 <td><label for="calidad">Calidad:</label></td>
-                <td><input type="number" id="calidad" name="calidad" required></td>
+                <td><select id="calidad" name="calidad" required>
+                    <option value="144">144</option>
+                    <option value="240">240</option>
+                    <option value="360">360</option>
+                    <option value="480">480</option>
+                    <option value="720">720</option>
+                    <option value="1080">1080</option>
+                    <option value="1440">1440</option>
+                    <option value="2160">2160</option>
+                </select></td>
             </tr>
             <tr>
                 <td><label for="duracion">Duración:</label></td>
-                <td><input type="number" id="duracion" name="duracion" required></td>
+                <td><input type="number" id="duracion" name="duracion" min="0" required></td>
             </tr>
             <tr>
                 <td><label for="autor">Autor:</label></td>

@@ -15,7 +15,8 @@ $resumen = $_POST["resumen"];
 $sql = "INSERT INTO peliculas (titulo, user_id, calidad, duracion, autor, fechaSalida, resumen) VALUES ('$titulo', $user_id, '$calidad', '$duracion', '$autor', '$fechaSalida', '$resumen')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Película creada con éxito";
+    header('Location: ../.');
+    exit;   
 } else {
     echo "Error al crear la película: " . $conn->error;
 }
