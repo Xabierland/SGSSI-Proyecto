@@ -13,7 +13,7 @@ function iniciarSesion() {
     if (!validarContrasena(passwd)) {
         alert("Error en contraseña. \nLa contraseña debe contar con 8 caracteres entre los cuales debe de haber minúsculas, mayúsculas, números y signos especiales [!@#$%^&*].");
     } else if (!validarCorreoElectronico(email)) {
-        alert("Error en email, verifica el formato.");
+        alert("Error en el formato del email.");
     } else {
         valid = true;
     }

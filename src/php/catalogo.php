@@ -6,6 +6,7 @@ $sql = "SELECT * FROM peliculas";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
+    echo '<h2>Catálogo de Películas</h2>';
     echo '<input type="text" id="buscador" placeholder="Buscar...">'; // Campo de búsqueda
     echo '<div class="catalogo">';
     echo '<table>';
@@ -19,7 +20,6 @@ if ($result->num_rows > 0) {
     // Mostrar los datos en la tabla
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
-        // Modificar el título para que sea un enlace a pelicula.php con el ID de la película como parámetro
         // Modificar el título para que llame a la función cargarContenido con el ID de la película como parámetro
         echo "<td><a href='#' onclick='cargarContenido(\"php/pelicula.php?id=" . $row["id"] . "\", event)'>" . $row["titulo"] . "</a></td>";
         echo "<td>" . $row["autor"] . "</td>";
