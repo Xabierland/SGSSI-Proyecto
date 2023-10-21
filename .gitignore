@@ -1,8 +1,8 @@
 mysql/
-doc/doc.aux
-doc/doc.bbl
-doc/doc.fdb_latexmk
-doc/doc.fls
-doc/doc.log
-doc/doc.synctex.gz
-doc/doc.toc
+*.aux
+*.bbl
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex.gz
+*.toc
