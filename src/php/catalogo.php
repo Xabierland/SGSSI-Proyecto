@@ -40,6 +40,7 @@ $conn->close();
 
 
 <!-- Script para el buscador AJAX -->
+<!-- Codigo del motor de busqueda sacado de Codigos de Programacion - MR. (2022). B´usqueda en tiempo real con PHP, MySQL y AJAX. https://youtu.be/IP2Ye2KKfoc?si=XznSgfh9840GLjfK9 -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function () {
