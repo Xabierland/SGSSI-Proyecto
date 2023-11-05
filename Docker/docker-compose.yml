@@ -13,11 +13,11 @@ services:
     links:
       - db
     volumes:
-      - ./src:/var/www/html/
+      - ./web/src:/var/www/html/
 
   db:
     container_name: db
-    image: mariadb:10.8.2
+    image: mariadb:latest
     restart: always
     volumes:
       - ./mysql:/var/lib/mysql

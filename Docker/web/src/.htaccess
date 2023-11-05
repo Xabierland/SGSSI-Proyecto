@@ -1,0 +1,5 @@
+Header set X-Frame-Options "DENY"
+
+Header always set X-Content-Type-Options "nosniff"
+
+ServerSignature Off

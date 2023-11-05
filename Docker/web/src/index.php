@@ -1,5 +1,11 @@
 <?php
-session_start(); // Inicia la sesión PHP
+session_start([
+    'cookie_lifetime' => 0,           // La sesión expira cuando se cierra el navegador.
+    'cookie_path' => '/',             // Disponible en todo el dominio.
+    'cookie_secure' => true,          // Solo se envía la cookie sobre conexiones HTTPS.
+    'cookie_httponly' => true,        // La cookie solo es accesible a través de HTTP.
+    'cookie_samesite' => 'Lax',       // Define la política de SameSite (puede ser 'Lax' o 'Strict').
+]);
 ?>
 
 <!DOCTYPE html>
@@ -7,9 +13,16 @@ session_start(); // Inicia la sesión PHP
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+    <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' https://code.jquery.com;
+    style-src 'self';
+    img-src 'self' data:;
+    ">
     <title>Cine Nómada</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="js/validar.js"></script>  
     <script src="js/login.js"></script>   
     <script src="js/register.js"></script>   

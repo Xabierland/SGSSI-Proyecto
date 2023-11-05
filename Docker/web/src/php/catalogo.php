@@ -1,4 +1,5 @@
 <?php
+
 include 'bdcon.php';
 
 // Consulta SQL para obtener las películas
@@ -36,6 +37,7 @@ if ($result->num_rows > 0) {
 
 // Cerrar la conexión
 $conn->close();
+
 ?>
 
 
