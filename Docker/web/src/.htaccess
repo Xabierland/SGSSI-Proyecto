@@ -1,5 +1,7 @@
+
+# Cabeceras X-Frame-Options
 Header set X-Frame-Options "DENY"
 
+# Cabeceras X-Content-Type-Options
 Header always set X-Content-Type-Options "nosniff"
 
-ServerSignature Off

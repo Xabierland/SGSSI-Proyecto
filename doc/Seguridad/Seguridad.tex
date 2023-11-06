@@ -33,7 +33,6 @@
     \chapter{Introduccion}
     \chapter{Primera auditoria}
         La idea de esta auditoria es la de encontrar los fallos de seguridad que tiene nuestro sistema web para en el posterior capitulo de este documento comentarlos y solucionarlos.\\
-
         \section{ZAP}
         Para empezar con la primera auditoria ejecutaremos el proxy ZAP como se nos ha propuesto en clase.
         Al ejecutarla en nuestra pagina web nos encontramos con el siguiente listado de errores:
@@ -43,9 +42,8 @@
             \caption{Listado de errores de la primera auditoria}
         \end{figure}
         Como podemos ver en la imagen, tenemos un total de 11 errores, los cuales iremos comentando uno a uno en los siguientes apartados y solucionando.
-
         \section{sqlmap}
-
+        \section{nmap}
         \section{Metaexploit}
     \chapter{Vulnerabilidades}
         \section{Rotura de control de acceso}
@@ -82,34 +80,16 @@
                         \caption{Comprobación de usuario}
                     \end{figure}
                     Esta misma error tambien ha sido corregido en el catalogo.
-            \subsection{Configuracion erronea de las Cookies}
-                \subsubsection{Descripción}
-                    En nuestro sistema, las cookies no tienen la configuración segura, lo que permite que un atacante pueda obtener información sensible de los usuarios.
-                \subsubsection{Solución}
-                    Para solucionar este problema, hemos añadido la configuración segura a las cookies.
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.1.2.1.png}
-                        \caption{Configuración de las cookies}
-                    \end{figure}
         
         \clearpage
         \section{Fallos criptográficos}
-            \subsection{Forzar HTTPS}
+            \subsection{Cifrado de extremo a extremo}
                 \subsubsection{Descripción}
                     En nuestro sistema, no se fuerza el uso de HTTPS, lo que permite que un atacante pueda interceptar el trafico de la pagina y obtener información sensible de los usuarios.
                 \subsubsection{Solución}
                     Para solucionar este problema configuraremos nuestro servidor para que cifre y rediriga todo el trafico a HTTPS.
-            \subsection{Deshabilitar el almacenamiento en cache}
-                \subsubsection{Descripción}
-                    En nuestro sistema, no se deshabilita el almacenamiento en cache, lo que permite que un atacante pueda obtener información sensible de los usuarios.
-                \subsubsection{Solución}
-                    Para solucionar este problema crearemos una cabecera "Cache-Control" con el valor "no-store" para que el navegador no almacene en cache la pagina.
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.2.2.1.png}
-                        \caption{Cabecera Cache-Control}
-                    \end{figure}
+            \subsection{Algoritmos criptograficos}
+            \subsection{Almacenar informacion sensible}
             \subsection{Almacenamiento de contraseñas}
                 \subsubsection{Descripción}
                     En nuestro sistema, no se almacenan las contraseñas de los usuarios de forma segura, lo que permite que un atacante pueda obtener las contraseñas de los usuarios.
@@ -117,15 +97,25 @@
                     Si un atacante consigue acceso a la base de datos, puede obtener las contraseñas de los usuarios en texto plano.
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.2.3.1.png}
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.2.4.1.png}
                         \caption{Contraseñas en texto plano}
                     \end{figure}
                 \subsubsection{Solución}
                     Para solucionar este problema, hemos añadido una función que cifra las contraseñas de los usuarios antes de almacenarlas en la base de datos.
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.2.3.2.png}
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.2.4.2.png}
                         \caption{Contraseñas cifradas}
+                    \end{figure}
+            \subsection{Configuracion erronea de las Cookies}
+                \subsubsection{Descripción}
+                    En nuestro sistema, las cookies no tienen la configuración segura, lo que permite que un atacante pueda obtener información sensible de los usuarios.
+                \subsubsection{Solución}
+                    Para solucionar este problema, hemos añadido la configuración segura a las cookies.
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.2.5.1.png}
+                        \caption{Configuración de las cookies}
                     \end{figure}
         \clearpage
         \section{Inyección}
@@ -143,25 +133,70 @@
         \clearpage
         \section{Diseño inseguro}
             \subsection{Auditorias de seguridad}
+                \subsubsection{Descripción}
+                    Una auditoría de seguridad es un proceso sistemático de evaluación y revisión de sistemas, redes, aplicaciones o entornos tecnológicos con el propósito de identificar vulnerabilidades, debilidades y riesgos de seguridad. El objetivo principal de una auditoría de seguridad es garantizar que los controles de seguridad estén implementados adecuadamente y cumplan con los estándares de seguridad, y proporcionar recomendaciones para mejorar la protección de activos y datos contra amenazas y ataques cibernéticos.
+                \subsubsection{Solución}
+                    La solucion a este problema es realizar una auditoria de seguridad de forma periodica para detectar posibles fallos de seguridad. 
             \subsection{Reutilizacion de codigos seguros}
-        \clearpage
+            \clearpage
         \section{Configuración de seguridad insuficiente}
             \subsection{Entornos de desarrollo}
+                    GitHub
             \subsection{Plataforma minima}
             \subsection{Despliegue seguro}
+                    Docker Secret
             \subsection{Cabeceras CSP}
                 \subsubsection{Descripción}
-                    Estableces una CSP en un sitio web sirve para mejorar la seguridad de tu aplicación web y reducir el riesgo de ataques de seguridad. 
-                    Una CSP especifica las fuentes de las que se pueden cargar recursos (como scripts, estilos, imágenes, etc.) en una página web.
+                    Las cabeceras CSP son una medida de seguridad utilizada en la programación web para mitigar los riesgos asociados con ataques de Cross-Site Scripting (XSS) y otros tipos de ataques de inyección de código malicioso en páginas web.
                 \subsubsection{Solución}
-                    Para solucionar este problema, hemos añadido una cabecera "Content-Security-Policy" con los siguientes valores:
-                    
-                    Tambien hemos añadido X-Frame-Options para evitar ataques de clickjacking.
-        \clearpage
+                    Para solucionar este problema, hemos añadido una cabecera 'Content-Security-Policy' con los siguientes valores:
+            \subsection{Cabeceras HSTS}
+                \subsubsection{Descripción}
+                Las cabeceras HSTS (HTTP Strict Transport Security) son una medida de seguridad utilizada en la programación web para garantizar que las comunicaciones entre un navegador web y un sitio web se realicen a través de una conexión segura y encriptada utilizando el protocolo HTTPS (HTTP Secure). HSTS ayuda a prevenir ataques de tipo man-in-the-middle (MitM) que podrían exponer datos sensibles o comprometer la seguridad de la comunicación.
+                \subsubsection{Solución}
+                    Para solucionar este problema, hemos añadido una cabecera 'Strict-Transport-Security' con los siguientes valores:
+            \subsection{Cabeceras X-XSS-Protection}
+                \subsubsection{Descripción}
+                Las cabeceras "X-XSS-Protection" son una medida de seguridad utilizada en la programación web para ayudar a prevenir ataques de tipo Cross-Site Scripting (XSS). Los ataques XSS ocurren cuando un atacante inyecta código JavaScript malicioso en una página web, que luego se ejecuta en el navegador de un usuario sin su conocimiento. Estas cabeceras se utilizan para controlar y mitigar estos ataques.
+                \subsubsection{Solución}
+                    Para solucionar este problema, hemos añadido una cabecera 'X-XSS-Protection' con los siguientes valores:
+            \subsection{Cabeceras X-Content-Type-Options}
+                \subsubsection{Descripción}
+                Las cabeceras "X-Content-Type-Options" son una medida de seguridad utilizada en la programación web para mitigar ciertos tipos de ataques, como ataques de tipo MIME-sniffing. Estas cabeceras se utilizan para controlar cómo el navegador web interpreta y muestra el contenido de una página web.
+                \subsubsection{Solución}
+                    Para solucionar este problema, hemos añadido una cabecera 'X-Content-Type-Options' con los siguientes valores:
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=0.7\textwidth]{./img/vulnerabilidades/3.5.7.1.png}
+                        \caption{Cabecera X-Content-Type-Options}
+                    \end{figure}
+            \subsection{Cabeceras X-Frame-Options}
+                \subsubsection{Descripción}
+                    Las cabeceras "X-Frame-Options" son una medida de seguridad utilizada en la programación web para controlar si una página web puede ser incrustada o mostrada dentro de un marco (frame) de otro sitio web. Estas cabeceras se utilizan para prevenir ataques de clickjacking, en los cuales un atacante puede ocultar contenido malicioso detrás de una página legítima y engañar a los usuarios para que hagan clic en elementos sin su consentimiento.
+                \subsubsection{Solución}
+                    Para solucionar este problema, hemos añadido una cabecera 'X-Frame-Options' con los siguientes valores:
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=0.7\textwidth]{./img/vulnerabilidades/3.5.8.1.png}
+                        \caption{Cabecera X-Frame-Options}
+                    \end{figure}
+            \subsection{Cabeceras Cache-Control}
+                \subsubsection{Descripción}
+                    Las cabeceras 'Cache-Control' son utilizadas en las respuestas HTTP enviadas por un servidor web para controlar cómo los recursos web deben ser almacenados en la memoria caché del navegador o en servidores intermedios (como proxies) y cómo se deben comportar en términos de almacenamiento y actualización. Estas cabeceras son fundamentales para gestionar la eficiencia de la carga de páginas web, la seguridad y la privacidad.
+                \subsubsection{Solución}
+                    Para solucionar este problema crearemos una cabecera 'Cache-Control' con el valor 'no-store' para que el navegador no almacene en cache la pagina.
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.5.9.1.png}
+                        \caption{Cabecera Cache-Control}
+                    \end{figure}
+            \subsection{Configuracion PHP}
+                \subsubsection{Descripción}
+            \clearpage
         \section{Componentes vulnerables y obsoletos}
             \subsection{Control de versiones de los componentes}
                 \subsubsection{Descripción}
-                    En nuestro sistema no se utilizan las ultimas versiones de todos los componentes lo que puede resultar en una brecha de seguridad.
+                    Es crítico mantener actualizados los sistemas operativos y el software de seguridad con las últimas actualizaciones y parches de seguridad.
                 \subsubsection{Solución}
                     Para solucionar este problema, hemos actualizado todos los componentes a sus ultimas versiones.
                     \begin{itemize}
@@ -170,31 +205,41 @@
                         \item phpMyAdmin ya estaba en la ultima version.
                         \item jQuery 3.6.0 → 3.7.1
                     \end{itemize}
-        \clearpage
+            \clearpage
         \section{Fallos de identificación y autenticación}
-            \subsection{Evitar ataques automatizados}
-            \subsection{Contraseñas debiles o por defecto}
             \subsection{Autenticacion de dos factores}
+            \subsection{Contraseñas debiles o por defecto}
             \subsection{Invalidacion de sesiones}
+                    \subsubsection{Descripción}
+
         \clearpage
         \section{Fallos en la integridad de datos y software}
             \subsection{Firmas digitales}
             \subsection{Bibliotecas y dependencias confiables}
             \subsection{Uso de herramientas de analisis}
-        \clearpage
+            \clearpage
         \section{Fallos en la monitorizacion de la seguridad}
+            \subsection{Configuracion de logs del sistema}
             \subsection{Implementacion de un log}
-        \clearpage
+            \clearpage
         \section{Falsificacion de Solicitud del Lado del Servidor (SSRF)}
             \subsection{Control del trafico}
+               Wireshark/tcpdump
+            \subsection{Validacion de accesos}
+                Snort
             \subsection{Asegurar el codigo}
+                GitHub
         \clearpage
         \section{Problemas de calidad de codigo}
             \subsection{Revision de calidad del codigo}
-        \clearpage
+            \clearpage
         \section{Problemas de denegacion de servicios}
             \subsection{Pruebas de rendimiento}
     \chapter{Segunda auditoria}
+        \section{ZAP}
+        \section{sqlmap}
+        \section{nmap}
+        \section{Metaexploit}
     \chapter{Conclusiones}
     \chapter{Bibliografia}
         \begin{itemize}

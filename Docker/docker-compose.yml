@@ -20,7 +20,7 @@ services:
     image: mariadb:latest
     restart: always
     volumes:
-      - ./mysql:/var/lib/mysql
+      - mysql:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: admin
