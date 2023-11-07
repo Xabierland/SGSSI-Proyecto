@@ -34,6 +34,40 @@ docker-compose up
 
 ### 6. Listo
 
+## TO-DO
+
+### Entrega 1
+
+* [X] Registro de usuarios
+* [X] Identificacion de usuarios
+* [X] Modificacion de datos personales del usuario identificado
+* [X] Posibilidad de añadir elementos al sistema
+* [X] Generacion del listado
+* [X] Posibilidad de modificar datos de los elementos
+* [X] Posibilidad de eliminar elementos del listado
+* [X] Diseño y usabilidad
+* [X] Documentacion
+
+### Entrega 2
+
+* [ ] Introduccion
+* [ ] Primera auditoria
+* [ ] Vulnerabilidades
+  * [X] Rotura de control de acceso
+  * [ ] Fallos criptograficos
+  * [X] Inyeccion
+  * [ ] Diseño inseguro
+  * [ ] Configuración de seguridad insuficiente
+  * [X] Componentes vulnerables y obsoletos
+  * [ ] Fallos de identificacion y autenticacion
+  * [ ] Fallos de la integridad de datos y software
+  * [ ] Fallos en la monitorizacion de la seguridad
+  * [ ] Falsificacion de Solicitud del Lado del Servidor (SSRF)
+  * [ ] Problemas de calidad de codigo
+  * [ ] Problemas de denegacion de servicios
+* [ ] Segunda auditoria
+* [ ] Conclusiones
+
 ## FAQ
 
 * Tirar el servicio:

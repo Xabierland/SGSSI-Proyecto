@@ -80,16 +80,16 @@
                         \caption{Comprobación de usuario}
                     \end{figure}
                     Esta misma error tambien ha sido corregido en el catalogo.
-        
-        \clearpage
+            \clearpage       
         \section{Fallos criptográficos}
             \subsection{Cifrado de extremo a extremo}
                 \subsubsection{Descripción}
                     En nuestro sistema, no se fuerza el uso de HTTPS, lo que permite que un atacante pueda interceptar el trafico de la pagina y obtener información sensible de los usuarios.
                 \subsubsection{Solución}
                     Para solucionar este problema configuraremos nuestro servidor para que cifre y rediriga todo el trafico a HTTPS.
-            \subsection{Algoritmos criptograficos}
+            \clearpage
             \subsection{Almacenar informacion sensible}
+            \clearpage
             \subsection{Almacenamiento de contraseñas}
                 \subsubsection{Descripción}
                     En nuestro sistema, no se almacenan las contraseñas de los usuarios de forma segura, lo que permite que un atacante pueda obtener las contraseñas de los usuarios.
@@ -97,16 +97,31 @@
                     Si un atacante consigue acceso a la base de datos, puede obtener las contraseñas de los usuarios en texto plano.
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.2.4.1.png}
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.2.3.1.png}
                         \caption{Contraseñas en texto plano}
                     \end{figure}
                 \subsubsection{Solución}
-                    Para solucionar este problema, hemos añadido una función que cifra las contraseñas de los usuarios antes de almacenarlas en la base de datos.
+                    Para solucionar este problema de la mejor forma posible debemos tener tres puntos bien definidos:
+                    \begin{enumerate}
+                        \item Cofigurar el factor de costo apropiado
+                        \begin{itemize}
+                            \item El factor de costo (work factor) en bcrypt determina el número de iteraciones utilizadas en el cálculo del hash. Un valor mayor implica una contraseña más segura, pero también requiere más tiempo para calcular el hash. Un valor razonable es 12 o más, dependiendo del hardware y las necesidades de rendimiento.
+                        \end{itemize}
+                        \item Usar un algoritmo de cifrado seguro.
+                        \begin{itemize}
+                            \item En nuestro caso usaremos BCrypt. CRYPT\_BLOWFISH se usa para crear el hash. Producirá un hash estándar compatible con crypt() utilizando el identificador \texttt{"\$2y\$"}. El resultado siempre será un string de 60 caracteres, o false en caso de error.
+                        \end{itemize}
+                        \item Generar un semilla aleatoria para cada usuario.
+                        \begin{itemize}
+                            \item BCrypt ya gestiona las semillas de forma automatica y en el manual de PHP no recomiendan su uso de otra manera. Mas informacion en \url{https://www.php.net/manual/es/function.password-hash.php}
+                        \end{itemize}
+                    \end{enumerate}
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.2.4.2.png}
-                        \caption{Contraseñas cifradas}
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.2.3.2.png}
+                        \caption{Contraseñas encriptadas}
                     \end{figure}
+            \clearpage
             \subsection{Configuracion erronea de las Cookies}
                 \subsubsection{Descripción}
                     En nuestro sistema, las cookies no tienen la configuración segura, lo que permite que un atacante pueda obtener información sensible de los usuarios.
@@ -114,10 +129,10 @@
                     Para solucionar este problema, hemos añadido la configuración segura a las cookies.
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.2.5.1.png}
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.2.4.1.png}
                         \caption{Configuración de las cookies}
                     \end{figure}
-        \clearpage
+            \clearpage
         \section{Inyección}
             \subsection{Procesado de consultar SQL}
                 \subsubsection{Descripción}
@@ -130,36 +145,53 @@
                         \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.3.1.1.png}
                         \caption{Parametrizar consulta SQL}
                     \end{figure}
-        \clearpage
+            \clearpage
         \section{Diseño inseguro}
             \subsection{Auditorias de seguridad}
                 \subsubsection{Descripción}
                     Una auditoría de seguridad es un proceso sistemático de evaluación y revisión de sistemas, redes, aplicaciones o entornos tecnológicos con el propósito de identificar vulnerabilidades, debilidades y riesgos de seguridad. El objetivo principal de una auditoría de seguridad es garantizar que los controles de seguridad estén implementados adecuadamente y cumplan con los estándares de seguridad, y proporcionar recomendaciones para mejorar la protección de activos y datos contra amenazas y ataques cibernéticos.
                 \subsubsection{Solución}
                     La solucion a este problema es realizar una auditoria de seguridad de forma periodica para detectar posibles fallos de seguridad. 
+            \clearpage
             \subsection{Reutilizacion de codigos seguros}
+                \subsubsection{Descripción}
+                    La reutilización de código seguro se refiere a la práctica de aprovechar componentes de software previamente probados y seguros en lugar de escribir código desde cero. Esto no solo puede acelerar el desarrollo de software, sino que también puede reducir el riesgo de introducir vulnerabilidades de seguridad.
+                \subsubsection{Solución}
+                    En nuestro proyecto se han implementado estas practicas mediante la reutilización del archivo validar.js en el que se encuentran las funciones de validación de todos los formularios de nuestro sitio web.
             \clearpage
         \section{Configuración de seguridad insuficiente}
             \subsection{Entornos de desarrollo}
+                \subsubsection{Descripción}
                     GitHub
+                \subsubsection{Solución}
+            \clearpage
             \subsection{Plataforma minima}
+                \subsubsection{Descripción}
+                \subsubsection{Solución}
+            \clearpage
             \subsection{Despliegue seguro}
+                \subsubsection{Descripción}
                     Docker Secret
+                \subsubsection{Solución}
+            \clearpage
             \subsection{Cabeceras CSP}
                 \subsubsection{Descripción}
                     Las cabeceras CSP son una medida de seguridad utilizada en la programación web para mitigar los riesgos asociados con ataques de Cross-Site Scripting (XSS) y otros tipos de ataques de inyección de código malicioso en páginas web.
                 \subsubsection{Solución}
                     Para solucionar este problema, hemos añadido una cabecera 'Content-Security-Policy' con los siguientes valores:
+            \clearpage
             \subsection{Cabeceras HSTS}
                 \subsubsection{Descripción}
-                Las cabeceras HSTS (HTTP Strict Transport Security) son una medida de seguridad utilizada en la programación web para garantizar que las comunicaciones entre un navegador web y un sitio web se realicen a través de una conexión segura y encriptada utilizando el protocolo HTTPS (HTTP Secure). HSTS ayuda a prevenir ataques de tipo man-in-the-middle (MitM) que podrían exponer datos sensibles o comprometer la seguridad de la comunicación.
+                    Las cabeceras HSTS (HTTP Strict Transport Security) son una medida de seguridad utilizada en la programación web para garantizar que las comunicaciones entre un navegador web y un sitio web se realicen a través de una conexión segura y encriptada utilizando el protocolo HTTPS (HTTP Secure). HSTS ayuda a prevenir ataques de tipo man-in-the-middle (MitM) que podrían exponer datos sensibles o comprometer la seguridad de la comunicación.
                 \subsubsection{Solución}
                     Para solucionar este problema, hemos añadido una cabecera 'Strict-Transport-Security' con los siguientes valores:
+            \clearpage
             \subsection{Cabeceras X-XSS-Protection}
                 \subsubsection{Descripción}
                 Las cabeceras "X-XSS-Protection" son una medida de seguridad utilizada en la programación web para ayudar a prevenir ataques de tipo Cross-Site Scripting (XSS). Los ataques XSS ocurren cuando un atacante inyecta código JavaScript malicioso en una página web, que luego se ejecuta en el navegador de un usuario sin su conocimiento. Estas cabeceras se utilizan para controlar y mitigar estos ataques.
                 \subsubsection{Solución}
                     Para solucionar este problema, hemos añadido una cabecera 'X-XSS-Protection' con los siguientes valores:
+            \clearpage
             \subsection{Cabeceras X-Content-Type-Options}
                 \subsubsection{Descripción}
                 Las cabeceras "X-Content-Type-Options" son una medida de seguridad utilizada en la programación web para mitigar ciertos tipos de ataques, como ataques de tipo MIME-sniffing. Estas cabeceras se utilizan para controlar cómo el navegador web interpreta y muestra el contenido de una página web.
@@ -170,6 +202,7 @@
                         \includegraphics[width=0.7\textwidth]{./img/vulnerabilidades/3.5.7.1.png}
                         \caption{Cabecera X-Content-Type-Options}
                     \end{figure}
+            \clearpage
             \subsection{Cabeceras X-Frame-Options}
                 \subsubsection{Descripción}
                     Las cabeceras "X-Frame-Options" son una medida de seguridad utilizada en la programación web para controlar si una página web puede ser incrustada o mostrada dentro de un marco (frame) de otro sitio web. Estas cabeceras se utilizan para prevenir ataques de clickjacking, en los cuales un atacante puede ocultar contenido malicioso detrás de una página legítima y engañar a los usuarios para que hagan clic en elementos sin su consentimiento.
@@ -180,6 +213,7 @@
                         \includegraphics[width=0.7\textwidth]{./img/vulnerabilidades/3.5.8.1.png}
                         \caption{Cabecera X-Frame-Options}
                     \end{figure}
+            \clearpage
             \subsection{Cabeceras Cache-Control}
                 \subsubsection{Descripción}
                     Las cabeceras 'Cache-Control' son utilizadas en las respuestas HTTP enviadas por un servidor web para controlar cómo los recursos web deben ser almacenados en la memoria caché del navegador o en servidores intermedios (como proxies) y cómo se deben comportar en términos de almacenamiento y actualización. Estas cabeceras son fundamentales para gestionar la eficiencia de la carga de páginas web, la seguridad y la privacidad.
@@ -190,8 +224,28 @@
                         \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.5.9.1.png}
                         \caption{Cabecera Cache-Control}
                     \end{figure}
+            \clearpage
             \subsection{Configuracion PHP}
                 \subsubsection{Descripción}
+                    Cuando usamos PHP en un servidor web es importante el configurarlo de forma segura para evitar que se filtre informacion que pueda ayudar a los atacantes a encontrar una vulnerabilidad en nuestro sistema.
+                \subsubsection{Solución}
+                    Hemos ocultado la version de PHP en las peticiones a nuestro servidor para evitar que un atacante pueda usar esta informacion para encontrar una vulnerabilidad en nuestro sistema. Para ello hemos creado el php.ini
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.5.10.1.png}
+                        \caption{Ocultar version de PHP}
+                    \end{figure}
+            \clearpage
+            \subsection{Configuracion Apache}
+                \subsubsection{Descripción}
+                    Al igual que con PHP en el punto anterior es importante configurar Apache para que muestre la minima informacion al exterior.
+                \subsubsection{Solución}
+                    Para ello, al igual que con PHP, hemos ocultado las versiones del servidor para evitar en la medida de lo posible que el atacante encuntre vulnerabilidad en nuestro servidor. Para ello hemos editado el apache2.conf
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=0.7\textwidth]{./img/vulnerabilidades/3.5.11.1.png}
+                        \caption{Ocultar version de Apache}
+                    \end{figure}
             \clearpage
         \section{Componentes vulnerables y obsoletos}
             \subsection{Control de versiones de los componentes}
@@ -208,33 +262,40 @@
             \clearpage
         \section{Fallos de identificación y autenticación}
             \subsection{Autenticacion de dos factores}
+            \clearpage
             \subsection{Contraseñas debiles o por defecto}
+            \clearpage
             \subsection{Invalidacion de sesiones}
                     \subsubsection{Descripción}
-
-        \clearpage
+            \clearpage
         \section{Fallos en la integridad de datos y software}
             \subsection{Firmas digitales}
+            \clearpage
             \subsection{Bibliotecas y dependencias confiables}
+            \clearpage
             \subsection{Uso de herramientas de analisis}
             \clearpage
         \section{Fallos en la monitorizacion de la seguridad}
             \subsection{Configuracion de logs del sistema}
+            \clearpage
             \subsection{Implementacion de un log}
             \clearpage
         \section{Falsificacion de Solicitud del Lado del Servidor (SSRF)}
             \subsection{Control del trafico}
                Wireshark/tcpdump
+            \clearpage
             \subsection{Validacion de accesos}
                 Snort
+            \clearpage
             \subsection{Asegurar el codigo}
                 GitHub
-        \clearpage
+            \clearpage
         \section{Problemas de calidad de codigo}
             \subsection{Revision de calidad del codigo}
             \clearpage
         \section{Problemas de denegacion de servicios}
             \subsection{Pruebas de rendimiento}
+            \clearpage
     \chapter{Segunda auditoria}
         \section{ZAP}
         \section{sqlmap}
