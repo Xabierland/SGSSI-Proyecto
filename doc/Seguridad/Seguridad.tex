@@ -187,8 +187,9 @@
             \clearpage
             \subsection{Despliegue seguro}
                 \subsubsection{Descripción}
-                    Docker Secret
+                    Es importante que a la hora de montar nuestro servidor web no haya archivos que puedan ser accesibles desde el exterior y que puedan contener informacion sensible como contraseñas. Esto a nosotros nos ocurre en el docker-compose.yml
                 \subsubsection{Solución}
+                    Hemos creado un .env donde se almacenan las contraseñas y demas informacion sensible y hemos añadido el archivo al .gitignore para que no se suba al repositorio.
             \clearpage
             \subsection{Cabeceras CSP}
                 \subsubsection{Descripción}
