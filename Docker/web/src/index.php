@@ -16,7 +16,7 @@ session_start([
     <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
     <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
-    script-src 'self' https://code.jquery.com;
+    script-src 'self' https://code.jquery.com/ 'unsafe-inline';
     style-src 'self';
     img-src 'self' data:;
     ">

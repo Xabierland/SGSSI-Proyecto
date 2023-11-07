@@ -6,3 +6,4 @@ Docker/mysql/
 *.log
 *.synctex.gz
 *.toc
+*.out

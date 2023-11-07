@@ -87,6 +87,22 @@
                     En nuestro sistema, no se fuerza el uso de HTTPS, lo que permite que un atacante pueda interceptar el trafico de la pagina y obtener información sensible de los usuarios.
                 \subsubsection{Solución}
                     Para solucionar este problema configuraremos nuestro servidor para que cifre y rediriga todo el trafico a HTTPS.
+                    
+                    Creamos un certificado SSL autofirmado dentro del Dockerfile.
+                    
+                    Creamos una regla para redirigir el trafico entrante del puerto 80 al puerto 443.
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.2.1.1.png}
+                        \caption{Redireccion de trafico}
+                    \end{figure}
+                    
+                    Tambien debemos decir al puerto 443 que use el certificado SSL que hemos creado.
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.2.1.2.png}
+                        \caption{Certificado SSL}
+                    \end{figure}
             \clearpage
             \subsection{Almacenar informacion sensible}
             \clearpage
@@ -124,9 +140,9 @@
             \clearpage
             \subsection{Configuracion erronea de las Cookies}
                 \subsubsection{Descripción}
-                    En nuestro sistema, las cookies no tienen la configuración segura, lo que permite que un atacante pueda obtener información sensible de los usuarios.
+                    La configuración errónea de las cookies se refiere a la práctica de establecer parámetros o atributos de las cookies de manera inadecuada, lo que puede tener consecuencias negativas en términos de seguridad, privacidad y funcionalidad en una aplicación web.                
                 \subsubsection{Solución}
-                    Para solucionar este problema, hemos añadido la configuración segura a las cookies.
+                    Para solucionar este problema, hemos añadido una configuración segura a las cookies de nuestro sitio web.
                     \begin{figure}[H]
                         \centering
                         \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.2.4.1.png}

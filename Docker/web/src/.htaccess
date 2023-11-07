@@ -1,4 +1,3 @@
-
 # Cabeceras X-Frame-Options
 Header set X-Frame-Options "DENY"
 
