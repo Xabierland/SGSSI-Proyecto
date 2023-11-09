@@ -1,6 +1,30 @@
-# Cabeceras X-Frame-Options
+# 4 Cabecera HSTS
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+# 5 Cabecera X-XSS-Protection
+Header always set X-XSS-Protection "1; mode=block"
+
+# 6 Cabeceras X-Content-Type-Options
+Header always set X-Content-Type-Options "nosniff"
+
+# 7 Cabeceras X-Frame-Options
 Header set X-Frame-Options "DENY"
 
-# Cabeceras X-Content-Type-Options
-Header always set X-Content-Type-Options "nosniff"
+# 8 Cabecera X-Permitted-Cross-Domain-Policies
+Header always set X-Permitted-Cross-Domain-Policies "none"
+
+# 9 Cabecera X-DNS-Prefetch-Control
+Header always set X-DNS-Prefetch-Control "off"
+
+# 10 Cabecera X-Download-Options
+Header set X-Download-Options "noopen nosniff"
+
+# 11 Cabeceras Referrer-Policy
+Header always set Referrer-Policy "no-referrer"
+
+# 12 Cabeceras Feature-Policy
+Header always set Feature-Policy "geolocation 'self'; camera 'none'"
+
+# 13 Cabeceras Expect-CT
+Header always set Expect-CT "enforce, max-age=86400"
 

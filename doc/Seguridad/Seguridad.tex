@@ -57,26 +57,26 @@
                     Pongamos en el ejemplo que tenemos dos usuarios, Admin y Xabier con sus repectivas IDs
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=0.2\textwidth]{./img/vulnerabilidades/3.1.1.1.png}
+                        \includegraphics[width=0.2\textwidth]{./img/vulnerabilidades/3.1/1.1.png}
                         \caption{Datos de Usuarios}
                     \end{figure}
                     Si desde inspeccionar elementos hacemos click sobre el boton 'Perfil' este nos mostrara el link el cual se ve asi:
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=0.8\textwidth]{./img/vulnerabilidades/3.1.1.2.png}
+                        \includegraphics[width=0.8\textwidth]{./img/vulnerabilidades/3.1/1.2.png}
                         \caption{Perfil de Admin}
                     \end{figure}
                     Si alteramos el valor de ?id=X por en este caso la id de Xabier (La ID 1) podemos acceder a sus datos
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.1.1.3.png}
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.1/1.3.png}
                         \caption{Perfil de Xabier}
                     \end{figure}
                 \subsubsection{Solución}
                     Para solucionar este problema, hemos añadido una comprobación en el código que comprueba que el usuario que está intentando modificar los datos es el mismo que el usuario que está logueado en el sistema.
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.1.1.4.png}
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.1/1.4.png}
                         \caption{Comprobación de usuario}
                     \end{figure}
                     Esta misma error tambien ha sido corregido en el catalogo.
@@ -84,7 +84,7 @@
         \section{Fallos criptográficos}
             \subsection{Cifrado de extremo a extremo}
                 \subsubsection{Descripción}
-                    En nuestro sistema, no se fuerza el uso de HTTPS, lo que permite que un atacante pueda interceptar el trafico de la pagina y obtener información sensible de los usuarios.
+                El cifrado de extremo a extremo es un método de seguridad informática en el que la información se cifra en el punto de origen y solo se descifra en el punto de destino. Esto significa que los datos están protegidos durante su transmisión y solo son legibles para la parte destinataria que posee la clave de descifrado correspondiente.
                 \subsubsection{Solución}
                     Para solucionar este problema configuraremos nuestro servidor para que cifre y rediriga todo el trafico a HTTPS.
                     
@@ -93,18 +93,16 @@
                     Creamos una regla para redirigir el trafico entrante del puerto 80 al puerto 443.
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.2.1.1.png}
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.2/1.1.png}
                         \caption{Redireccion de trafico}
                     \end{figure}
                     
                     Tambien debemos decir al puerto 443 que use el certificado SSL que hemos creado.
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.2.1.2.png}
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.2/1.2.png}
                         \caption{Certificado SSL}
                     \end{figure}
-            \clearpage
-            \subsection{Almacenar informacion sensible}
             \clearpage
             \subsection{Almacenamiento de contraseñas}
                 \subsubsection{Descripción}
@@ -113,7 +111,7 @@
                     Si un atacante consigue acceso a la base de datos, puede obtener las contraseñas de los usuarios en texto plano.
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.2.3.1.png}
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.2/2.1.png}
                         \caption{Contraseñas en texto plano}
                     \end{figure}
                 \subsubsection{Solución}
@@ -134,7 +132,7 @@
                     \end{enumerate}
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.2.3.2.png}
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.2/2.2.png}
                         \caption{Contraseñas encriptadas}
                     \end{figure}
             \clearpage
@@ -145,24 +143,31 @@
                     Para solucionar este problema, hemos añadido una configuración segura a las cookies de nuestro sitio web.
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.2.4.1.png}
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.2/3.1.png}
                         \caption{Configuración de las cookies}
                     \end{figure}
             \clearpage
         \section{Inyección}
-            \subsection{Procesado de consultar SQL}
+            \subsection{SQL Injection}
                 \subsubsection{Descripción}
-                    En nuestro sistema, no se procesan correctamente las consultas SQL, lo que permite que un atacante pueda obtener información sensible de los usuarios.
+                    La inyección SQL es una vulnerabilidad de seguridad informática que permite a un atacante modificar las consultas SQL que se ejecutan en una base de datos subyacente. Esto puede permitir a un atacante obtener información confidencial, alterar o eliminar datos, o incluso comprometer completamente el sistema.
                 \subsubsection{PoC}
                 \subsubsection{Solución}
                     Para solucionar este problema, hemos modificado el codigo que procesa las consultas SQL para que no se puedan inyectar consultas SQL.
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.3.1.1.png}
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.3/1.1.png}
                         \caption{Parametrizar consulta SQL}
                     \end{figure}
             \clearpage
+            \subsection{Cross-Site Scripting (XSS)}
+                \subsubsection{Descripción}
+                    El Cross-Site Scripting (XSS) es una vulnerabilidad de seguridad informática que permite a un atacante inyectar código malicioso (por lo general JavaScript) en páginas web que son vistas por otros usuarios. El XSS permite a los atacantes ejecutar scripts en el navegador de un usuario, lo que puede secuestrar sesiones de usuario, desfigurar sitios web, robar información confidencial y distribuir malware.
+                \subsubsection{Solución}
+                    La solucion a este problema se vera mas adelante en la seccion 3.5
+            \clearpage
         \section{Diseño inseguro}
+            El "diseño inseguro" se refiere a la presencia de debilidades fundamentales en el diseño de una aplicación web que pueden ser explotadas por atacantes para comprometer la seguridad.
             \subsection{Auditorias de seguridad}
                 \subsubsection{Descripción}
                     Una auditoría de seguridad es un proceso sistemático de evaluación y revisión de sistemas, redes, aplicaciones o entornos tecnológicos con el propósito de identificar vulnerabilidades, debilidades y riesgos de seguridad. El objetivo principal de una auditoría de seguridad es garantizar que los controles de seguridad estén implementados adecuadamente y cumplan con los estándares de seguridad, y proporcionar recomendaciones para mejorar la protección de activos y datos contra amenazas y ataques cibernéticos.
@@ -176,70 +181,150 @@
                     En nuestro proyecto se han implementado estas practicas mediante la reutilización del archivo validar.js en el que se encuentran las funciones de validación de todos los formularios de nuestro sitio web.
             \clearpage
         \section{Configuración de seguridad insuficiente}
-            \subsection{Entornos de desarrollo}
-                \subsubsection{Descripción}
-                    GitHub
-                \subsubsection{Solución}
-            \clearpage
-            \subsection{Plataforma minima}
-                \subsubsection{Descripción}
-                \subsubsection{Solución}
-            \clearpage
+            La configuración de seguridad incorrecta o insuficiente se refiere a ajustes o parámetros de seguridad que no están adecuadamente configurados para proteger un sistema, aplicación, red o servicio. Puede haber varias áreas en las que la configuración de seguridad puede ser insuficiente o incorrecta, lo que podría dejar un sistema vulnerable a amenazas y ataques.
             \subsection{Despliegue seguro}
                 \subsubsection{Descripción}
                     Es importante que a la hora de montar nuestro servidor web no haya archivos que puedan ser accesibles desde el exterior y que puedan contener informacion sensible como contraseñas. Esto a nosotros nos ocurre en el docker-compose.yml
                 \subsubsection{Solución}
                     Hemos creado un .env donde se almacenan las contraseñas y demas informacion sensible y hemos añadido el archivo al .gitignore para que no se suba al repositorio.
+                    Dado que esto es un trabajo el .env sera incluido para poder comprobar que funciona correctamente.
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=0.55\textwidth]{./img/vulnerabilidades/3.5/2.1.png}
+                        \caption{docker-compose sin informacion sensible}
+                    \end{figure}
             \clearpage
-            \subsection{Cabeceras CSP}
+            \subsection{Cabecera CSP}
                 \subsubsection{Descripción}
                     Las cabeceras CSP son una medida de seguridad utilizada en la programación web para mitigar los riesgos asociados con ataques de Cross-Site Scripting (XSS) y otros tipos de ataques de inyección de código malicioso en páginas web.
                 \subsubsection{Solución}
                     Para solucionar este problema, hemos añadido una cabecera 'Content-Security-Policy' con los siguientes valores:
-            \clearpage
-            \subsection{Cabeceras HSTS}
-                \subsubsection{Descripción}
-                    Las cabeceras HSTS (HTTP Strict Transport Security) son una medida de seguridad utilizada en la programación web para garantizar que las comunicaciones entre un navegador web y un sitio web se realicen a través de una conexión segura y encriptada utilizando el protocolo HTTPS (HTTP Secure). HSTS ayuda a prevenir ataques de tipo man-in-the-middle (MitM) que podrían exponer datos sensibles o comprometer la seguridad de la comunicación.
-                \subsubsection{Solución}
-                    Para solucionar este problema, hemos añadido una cabecera 'Strict-Transport-Security' con los siguientes valores:
-            \clearpage
-            \subsection{Cabeceras X-XSS-Protection}
-                \subsubsection{Descripción}
-                Las cabeceras "X-XSS-Protection" son una medida de seguridad utilizada en la programación web para ayudar a prevenir ataques de tipo Cross-Site Scripting (XSS). Los ataques XSS ocurren cuando un atacante inyecta código JavaScript malicioso en una página web, que luego se ejecuta en el navegador de un usuario sin su conocimiento. Estas cabeceras se utilizan para controlar y mitigar estos ataques.
-                \subsubsection{Solución}
-                    Para solucionar este problema, hemos añadido una cabecera 'X-XSS-Protection' con los siguientes valores:
-            \clearpage
-            \subsection{Cabeceras X-Content-Type-Options}
-                \subsubsection{Descripción}
-                Las cabeceras "X-Content-Type-Options" son una medida de seguridad utilizada en la programación web para mitigar ciertos tipos de ataques, como ataques de tipo MIME-sniffing. Estas cabeceras se utilizan para controlar cómo el navegador web interpreta y muestra el contenido de una página web.
-                \subsubsection{Solución}
-                    Para solucionar este problema, hemos añadido una cabecera 'X-Content-Type-Options' con los siguientes valores:
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=0.7\textwidth]{./img/vulnerabilidades/3.5.7.1.png}
-                        \caption{Cabecera X-Content-Type-Options}
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.5/3.1.png}
+                        \caption{Cabecera CSP}
                     \end{figure}
             \clearpage
-            \subsection{Cabeceras X-Frame-Options}
-                \subsubsection{Descripción}
-                    Las cabeceras "X-Frame-Options" son una medida de seguridad utilizada en la programación web para controlar si una página web puede ser incrustada o mostrada dentro de un marco (frame) de otro sitio web. Estas cabeceras se utilizan para prevenir ataques de clickjacking, en los cuales un atacante puede ocultar contenido malicioso detrás de una página legítima y engañar a los usuarios para que hagan clic en elementos sin su consentimiento.
-                \subsubsection{Solución}
-                    Para solucionar este problema, hemos añadido una cabecera 'X-Frame-Options' con los siguientes valores:
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.7\textwidth]{./img/vulnerabilidades/3.5.8.1.png}
-                        \caption{Cabecera X-Frame-Options}
-                    \end{figure}
-            \clearpage
-            \subsection{Cabeceras Cache-Control}
+            \subsection{Cabecera Cache-Control}
                 \subsubsection{Descripción}
                     Las cabeceras 'Cache-Control' son utilizadas en las respuestas HTTP enviadas por un servidor web para controlar cómo los recursos web deben ser almacenados en la memoria caché del navegador o en servidores intermedios (como proxies) y cómo se deben comportar en términos de almacenamiento y actualización. Estas cabeceras son fundamentales para gestionar la eficiencia de la carga de páginas web, la seguridad y la privacidad.
                 \subsubsection{Solución}
                     Para solucionar este problema crearemos una cabecera 'Cache-Control' con el valor 'no-store' para que el navegador no almacene en cache la pagina.
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.5.9.1.png}
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.5/11.1.png}
                         \caption{Cabecera Cache-Control}
+                    \end{figure}
+            \clearpage
+            \subsection{Cabecera HSTS}
+                \subsubsection{Descripción}
+                    Las cabeceras HSTS (HTTP Strict Transport Security) son una medida de seguridad utilizada en la programación web para garantizar que las comunicaciones entre un navegador web y un sitio web se realicen a través de una conexión segura y encriptada utilizando el protocolo HTTPS (HTTP Secure). HSTS ayuda a prevenir ataques de tipo man-in-the-middle (MitM) que podrían exponer datos sensibles o comprometer la seguridad de la comunicación.
+                \subsubsection{Solución}
+                    Para solucionar este problema, hemos añadido una cabecera 'Strict-Transport-Security' con los siguientes valores:
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.5/4.1.png}
+                        \caption{Cabecera HSTS}
+                    \end{figure}
+            \clearpage
+            \subsection{Cabecera X-XSS-Protection}
+                \subsubsection{Descripción}
+                Las cabeceras "X-XSS-Protection" son una medida de seguridad utilizada en la programación web para ayudar a prevenir ataques de tipo Cross-Site Scripting (XSS). Los ataques XSS ocurren cuando un atacante inyecta código JavaScript malicioso en una página web, que luego se ejecuta en el navegador de un usuario sin su conocimiento. Estas cabeceras se utilizan para controlar y mitigar estos ataques.
+                \subsubsection{Solución}
+                    Para solucionar este problema, hemos añadido una cabecera 'X-XSS-Protection' con los siguientes valores:
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=0.7\textwidth]{./img/vulnerabilidades/3.5/5.1.png}
+                        \caption{Cabecera X-XSS-Protection}
+                    \end{figure}
+            \clearpage
+            \subsection{Cabecera X-Content-Type-Options}
+                \subsubsection{Descripción}
+                Las cabeceras "X-Content-Type-Options" son una medida de seguridad utilizada en la programación web para mitigar ciertos tipos de ataques, como ataques de tipo MIME-sniffing. Estas cabeceras se utilizan para controlar cómo el navegador web interpreta y muestra el contenido de una página web.
+                \subsubsection{Solución}
+                    Para solucionar este problema, hemos añadido una cabecera 'X-Content-Type-Options' con los siguientes valores:
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=0.7\textwidth]{./img/vulnerabilidades/3.5/6.1.png}
+                        \caption{Cabecera X-Content-Type-Options}
+                    \end{figure}
+            \clearpage
+            \subsection{Cabecera X-Frame-Options}
+                \subsubsection{Descripción}
+                    Las cabeceras "X-Frame-Options" son una medida de seguridad utilizada en la programación web para controlar si una página web puede ser incrustada o mostrada dentro de un marco (frame) de otro sitio web. Estas cabeceras se utilizan para prevenir ataques de clickjacking, en los cuales un atacante puede ocultar contenido malicioso detrás de una página legítima y engañar a los usuarios para que hagan clic en elementos sin su consentimiento.
+                \subsubsection{Solución}
+                    Para solucionar este problema, hemos añadido una cabecera 'X-Frame-Options' con los siguientes valores:
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=0.7\textwidth]{./img/vulnerabilidades/3.5/7.1.png}
+                        \caption{Cabecera X-Frame-Options}
+                    \end{figure}
+            \clearpage
+            \subsection{Cabecera X-Permitted-Cross-Domain-Policies}
+                \subsubsection{Descripción}
+                    La cabecera X-Permitted-Cross-Domain-Policies permite a los propietarios del contenido controlar cómo los documentos son tratados en contextos de navegación cruzada.
+                \subsubsection{Solución}
+                    Para solucionar este problema crearemos una cabecera 'X-Permitted-Cross-Domain-Policies' con el valor 'none' para que el navegador no permita que se usen caracteristicas y APIs en los contenidos de una pagina.
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.5/8.1.png}
+                        \caption{Cabecera X-Permitted-Cross-Domain-Policies}
+                    \end{figure}
+            \clearpage
+            \subsection{Cabecera X-DNS-Prefetch-Control}
+                \subsubsection{Descripción}
+                    La cabecera X-DNS-Prefetch-Control es una cabecera HTTP que se utiliza para controlar la funcionalidad de prefetching DNS en los navegadores. El prefetching DNS es una técnica que los navegadores utilizan para anticiparse a las solicitudes DNS antes de que un usuario haga clic en un enlace. Esto puede acelerar la carga de páginas al preresolver los nombres de dominio antes de que se soliciten explícitamente.
+                    Esto puede provocar que el navegador realice peticiones a dominios que no son de confianza, dar informacion de dominios sensibles, etc.
+                \subsubsection{Solución}
+                    Para solucionar este problema crearemos una cabecera 'X-DNS-Prefetch-Control' con el valor 'off' para que el navegador no permita que se precarge contenido de la pagina.
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.5/9.1.png}
+                        \caption{Cabecera X-DNS-Prefetch-Control}
+                    \end{figure}
+            \clearpage
+            \subsection{Cabecera X-Download-Options}
+                \subsubsection{Descripción}
+                    La cabecera X-Download-Options es una cabecera HTTP que se utiliza para controlar cómo ciertos navegadores manejan la descarga de archivos. Esta cabecera tiene un propósito específico en el contexto de Internet Explorer (IE) y se utiliza para mitigar el riesgo de ejecución automática de archivos descargados que podrían ser maliciosos.
+                \subsubsection{Solución}
+                    Para solucionar este problema crearemos una cabecera 'X-Download-Options' con el valor 'noopen' para que el navegador no permita que se ejecuten los archivos descargados.
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.5/10.1.png}
+                        \caption{Cabecera X-Download-Options}
+                    \end{figure}
+            \clearpage
+            \subsection{Cabecera Referrer-Policy}
+                \subsubsection{Descripción}
+                    Esta cabecera controla cómo se incluye el encabezado Referer en las solicitudes. Puedes configurarlo para reducir la cantidad de información sensible enviada en las solicitudes de referencia.
+                \subsubsection{Solución}
+                    Para solucionar este problema crearemos una cabecera 'Referrer-Policy' con el valor 'no-referrer' para que el navegador no envie informacion sensible en las solicitudes de referencia.
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.5/11.1.png}
+                        \caption{Cabecera Referrer-Policy}
+                    \end{figure}
+            \clearpage
+            \subsection{Cabecera Feature-Policy}
+                \subsubsection{Descripción}
+                    La cabecera 'Feature-Policy' permite que un sitio controle qué características y APIs pueden ser utilizadas por los contenidos de una página.
+                \subsubsection{Solución}
+                    Para solucionar este problema crearemos una cabecera 'Feature-Policy' con el valor 'none' para que el navegador no permita que se usen caracteristicas y APIs en los contenidos de una pagina.
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.5/12.1.png}
+                        \caption{Cabecera Feature-Policy}
+                    \end{figure}
+            \clearpage
+            \subsection{Cabecera Expect-CT}
+                \subsubsection{Descripción}
+                    Las cabeceras 'Expect-CT' ayuda a proteger al usuario contra ataques de certificate transparency.
+                \subsubsection{Solución}
+                    Para solucionar este problema crearemos una cabecera 'Expect-CT' con el valor 'max-age=86400' para que el navegador no permita que se usen caracteristicas y APIs en los contenidos de una pagina.
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.5/13.1.png}
+                        \caption{Cabecera Expect-CT}
                     \end{figure}
             \clearpage
             \subsection{Configuracion PHP}
@@ -249,7 +334,7 @@
                     Hemos ocultado la version de PHP en las peticiones a nuestro servidor para evitar que un atacante pueda usar esta informacion para encontrar una vulnerabilidad en nuestro sistema. Para ello hemos creado el php.ini
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.5.10.1.png}
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.5/14.1.png}
                         \caption{Ocultar version de PHP}
                     \end{figure}
             \clearpage
@@ -260,7 +345,7 @@
                     Para ello, al igual que con PHP, hemos ocultado las versiones del servidor para evitar en la medida de lo posible que el atacante encuntre vulnerabilidad en nuestro servidor. Para ello hemos editado el apache2.conf
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=0.7\textwidth]{./img/vulnerabilidades/3.5.11.1.png}
+                        \includegraphics[width=0.7\textwidth]{./img/vulnerabilidades/3.5/15.1.png}
                         \caption{Ocultar version de Apache}
                     \end{figure}
             \clearpage
@@ -324,5 +409,6 @@
             \item OWASP. (2021). Informe de Vulnerabilidades. OWASP. \url{https://owasp.org/www-project-top-ten/}
             \item GPT-3.5. (2023). Respuestas a preguntas varias. OpenAI. \url{https://www.openai.com/}
             \item GitHub Copilot. (2022). Autocompletado. GitHub. \url{https://github.com/features/copilot}
+            \item PHP. (2021). Manual de PHP. PHP. \url{https://www.php.net/manual/es/}
         \end{itemize}
 \end{document}

@@ -54,10 +54,10 @@ docker-compose up
 * [ ] Primera auditoria
 * [ ] Vulnerabilidades
   * [X] Rotura de control de acceso
-  * [ ] Fallos criptograficos
+  * [X] Fallos criptograficos
   * [X] Inyeccion
-  * [ ] Diseño inseguro
-  * [ ] Configuración de seguridad insuficiente
+  * [X] Diseño inseguro
+  * [X] Configuración de seguridad insuficiente
   * [X] Componentes vulnerables y obsoletos
   * [ ] Fallos de identificacion y autenticacion
   * [ ] Fallos de la integridad de datos y software
@@ -86,11 +86,4 @@ docker system prune -a
 
 ```bash
 docker volume prune
-```
-
-* ¿Credenciales de phpMyAdmin?
-
-```text
-User: admin
-Passwd: test
 ```
