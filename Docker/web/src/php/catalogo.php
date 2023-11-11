@@ -42,7 +42,6 @@ $conn->close();
 
 
 <!-- Script para el buscador AJAX -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function () {
         // Manejar el evento de cambio en el campo de búsqueda

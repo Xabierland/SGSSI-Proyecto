@@ -1,6 +1,6 @@
 console.log('Register Script Loaded');
 
-function enviarFormulario() {
+function registro() {
 
     console.log('Register Script Activated');
 
@@ -25,23 +25,35 @@ function enviarFormulario() {
     }
 
     if (valid) {
-        // Recopila los datos del formulario
-        var formData = new FormData(document.getElementById("registro-form"));
-
-        $.ajax({
-            url: "../php/register.php",
-            method: "POST",
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: function (data) {
-                // Maneja la respuesta del servidor (puede ser una redirección, mensaje de éxito, etc.)
-                alert(data);
-                location.reload();
-            },
-            error: function () {
-                alert("Error al enviar el formulario.");
-            }
+        // Genera el token de reCAPTCHA
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6Lc-xQspAAAAAMNfCH3z01L4BvbxZD2fTyLvnE7r', {action: 'registro'}).then(function(token) {
+                // Agrega el token al formulario
+                document.getElementById("g-recaptcha-response").value = token;
+                // Envía el formulario
+                tramitarRegistro();
+            });
         });
     }
+}
+
+function tramitarRegistro() {
+    // Recopila los datos del formulario
+    var formData = new FormData(document.getElementById("registro-form"));
+
+    $.ajax({
+        url: "../php/register.php",
+        method: "POST",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (data) {
+            // Maneja la respuesta del servidor (puede ser una redirección, mensaje de éxito, etc.)
+            alert(data);
+            location.reload();
+        },
+        error: function () {
+            alert("Error al enviar el formulario.");
+        }
+    });
 }

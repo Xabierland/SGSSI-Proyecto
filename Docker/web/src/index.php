@@ -15,14 +15,17 @@ session_start([
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
     <meta http-equiv="Content-Security-Policy" content="
-    default-src 'self';
-    script-src 'self' https://code.jquery.com/ 'unsafe-inline';
+    default-src 'self' https://www.google.com/ 'unsafe-inline';
+    script-src 'self' https://code.jquery.com/jquery-3.7.1.min.js https://www.google.com/ https://www.gstatic.com 'unsafe-inline';
     style-src 'self';
     img-src 'self' data:;
     ">
+
     <title>Cine Nómada</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6Lc-xQspAAAAAMNfCH3z01L4BvbxZD2fTyLvnE7r"></script>
     <script src="js/validar.js"></script>  
     <script src="js/login.js"></script>   
     <script src="js/register.js"></script>   

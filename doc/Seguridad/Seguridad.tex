@@ -31,20 +31,31 @@
     \end{titlepage}
     \tableofcontents
     \chapter{Introduccion}
+    La finalidad de esta etapa del proyecto consiste en garantizar la seguridad y robustez de la página web desarrollada en la fase inicial del proyecto. Con el propósito de lograr este objetivo, se recurrirá a la aplicación de diversas herramientas y técnicas que han sido abordadas y exploradas a lo largo del curso. El enfoque principal de esta fase se centra en identificar y abordar posibles vulnerabilidades y debilidades de seguridad en el sistema, a fin de implementar medidas correctivas y fortalecer la integridad de la plataforma web.
+    
+    Este proceso implica la utilización de herramientas especializadas, como ZAP, SQLMap, Nmap y Metasploit, que permiten evaluar y poner a prueba la infraestructura de seguridad de la página web. A través de su empleo, se llevará a cabo un exhaustivo análisis que permitirá descubrir posibles fallos o vulnerabilidades que puedan ser aprovechadas por actores maliciosos, poniendo en riesgo la integridad de los datos y la privacidad de los usuarios.
+    
+    El objetivo último es la identificación, documentación y solución de posibles vulnerabilidades, lo que contribuirá a elevar la seguridad y confiabilidad de la página web. A medida que se avance en este proceso, se aplicarán estrategias y medidas correctivas para abordar los hallazgos identificados y se establecerán salvaguardias que minimicen el riesgo de futuros incidentes de seguridad.
+    
+    Este proyecto representa un ejercicio académico valioso que no solo demuestra la comprensión de los conceptos de seguridad informática, sino que también ofrece la oportunidad de aplicar de manera práctica las habilidades adquiridas en la detección y mitigación de riesgos en entornos web. A través de esta experiencia, se espera adquirir un conocimiento más profundo y aplicable en el campo de la seguridad informática y estén mejor preparados para enfrentar desafíos en el mundo real.
     \chapter{Primera auditoria}
         La idea de esta auditoria es la de encontrar los fallos de seguridad que tiene nuestro sistema web para en el posterior capitulo de este documento comentarlos y solucionarlos.\\
         \section{ZAP}
-        Para empezar con la primera auditoria ejecutaremos el proxy ZAP como se nos ha propuesto en clase.
-        Al ejecutarla en nuestra pagina web nos encontramos con el siguiente listado de errores:
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=\textwidth]{./img/audit1/zap1.png}
-            \caption{Listado de errores de la primera auditoria}
-        \end{figure}
-        Como podemos ver en la imagen, tenemos un total de 11 errores, los cuales iremos comentando uno a uno en los siguientes apartados y solucionando.
+            Para empezar con la primera auditoria ejecutaremos el proxy ZAP como se nos ha propuesto en clase.
+            Al ejecutarla en nuestra pagina web nos encontramos con el siguiente listado de errores:
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=\textwidth]{./img/audit1/zap1.png}
+                \caption{Listado de errores de la primera auditoria}
+            \end{figure}
+            Como podemos ver en la imagen, tenemos un total de 11 errores, los cuales iremos comentando uno a uno en los siguientes apartados y solucionando.
+        \clearpage
         \section{sqlmap}
+        \clearpage
         \section{nmap}
+        \clearpage
         \section{Metaexploit}
+        \clearpage
     \chapter{Vulnerabilidades}
         \section{Rotura de control de acceso}
             La rotura de control de acceso es una vulnerabilidad que permite a un atacante acceder a recursos restringidos o privilegiados, ya sea por un error en la implementación de la autenticación y autorización o por un error en la lógica de control de acceso.
@@ -166,19 +177,23 @@
                 \subsubsection{Solución}
                     La solucion a este problema se vera mas adelante en la seccion 3.5
             \clearpage
+            \subsection{Cross-Site Request Forgery}
+                \subsubsection{Descripción}
+                    El Cross-Site Request Forgery (CSRF) es una vulnerabilidad de seguridad informática que permite a un atacante forzar a un usuario autenticado a ejecutar acciones no deseadas en una aplicación web en la que confía. El CSRF puede utilizarse para realizar acciones como transferencias de fondos, cambios de contraseñas, compras, etc.
+                \subsubsection{Solución}
+            \clearpage
         \section{Diseño inseguro}
             El "diseño inseguro" se refiere a la presencia de debilidades fundamentales en el diseño de una aplicación web que pueden ser explotadas por atacantes para comprometer la seguridad.
-            \subsection{Auditorias de seguridad}
-                \subsubsection{Descripción}
-                    Una auditoría de seguridad es un proceso sistemático de evaluación y revisión de sistemas, redes, aplicaciones o entornos tecnológicos con el propósito de identificar vulnerabilidades, debilidades y riesgos de seguridad. El objetivo principal de una auditoría de seguridad es garantizar que los controles de seguridad estén implementados adecuadamente y cumplan con los estándares de seguridad, y proporcionar recomendaciones para mejorar la protección de activos y datos contra amenazas y ataques cibernéticos.
-                \subsubsection{Solución}
-                    La solucion a este problema es realizar una auditoria de seguridad de forma periodica para detectar posibles fallos de seguridad. 
-            \clearpage
             \subsection{Reutilizacion de codigos seguros}
                 \subsubsection{Descripción}
                     La reutilización de código seguro se refiere a la práctica de aprovechar componentes de software previamente probados y seguros en lugar de escribir código desde cero. Esto no solo puede acelerar el desarrollo de software, sino que también puede reducir el riesgo de introducir vulnerabilidades de seguridad.
                 \subsubsection{Solución}
                     En nuestro proyecto se han implementado estas practicas mediante la reutilización del archivo validar.js en el que se encuentran las funciones de validación de todos los formularios de nuestro sitio web.
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.4/1.1.png}
+                        \caption{Validacion de formularios}
+                    \end{figure}
             \clearpage
         \section{Configuración de seguridad insuficiente}
             La configuración de seguridad incorrecta o insuficiente se refiere a ajustes o parámetros de seguridad que no están adecuadamente configurados para proteger un sistema, aplicación, red o servicio. Puede haber varias áreas en las que la configuración de seguridad puede ser insuficiente o incorrecta, lo que podría dejar un sistema vulnerable a amenazas y ataques.
@@ -190,7 +205,7 @@
                     Dado que esto es un trabajo el .env sera incluido para poder comprobar que funciona correctamente.
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=0.55\textwidth]{./img/vulnerabilidades/3.5/2.1.png}
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.5/2.1.png}
                         \caption{docker-compose sin informacion sensible}
                     \end{figure}
             \clearpage
@@ -234,7 +249,7 @@
                     Para solucionar este problema, hemos añadido una cabecera 'X-XSS-Protection' con los siguientes valores:
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=0.7\textwidth]{./img/vulnerabilidades/3.5/5.1.png}
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.5/5.1.png}
                         \caption{Cabecera X-XSS-Protection}
                     \end{figure}
             \clearpage
@@ -245,7 +260,7 @@
                     Para solucionar este problema, hemos añadido una cabecera 'X-Content-Type-Options' con los siguientes valores:
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=0.7\textwidth]{./img/vulnerabilidades/3.5/6.1.png}
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.5/6.1.png}
                         \caption{Cabecera X-Content-Type-Options}
                     \end{figure}
             \clearpage
@@ -256,7 +271,7 @@
                     Para solucionar este problema, hemos añadido una cabecera 'X-Frame-Options' con los siguientes valores:
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=0.7\textwidth]{./img/vulnerabilidades/3.5/7.1.png}
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.5/7.1.png}
                         \caption{Cabecera X-Frame-Options}
                     \end{figure}
             \clearpage
@@ -345,7 +360,7 @@
                     Para ello, al igual que con PHP, hemos ocultado las versiones del servidor para evitar en la medida de lo posible que el atacante encuntre vulnerabilidad en nuestro servidor. Para ello hemos editado el apache2.conf
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=0.7\textwidth]{./img/vulnerabilidades/3.5/15.1.png}
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.5/15.1.png}
                         \caption{Ocultar version de Apache}
                     \end{figure}
             \clearpage
@@ -363,24 +378,69 @@
                     \end{itemize}
             \clearpage
         \section{Fallos de identificación y autenticación}
-            \subsection{Autenticacion de dos factores}
+            \subsection{Captcha}
+                \subsubsection{Descripción}
+                    Un captcha es un tipo de prueba de Turing que se utiliza para determinar si el usuario es o no humano. Los captchas se utilizan para prevenir ataques de tipo bot, como el spam y el abuso de servicios web.
+                \subsubsection{Solución}
+                    Para solucionar este problema, hemos añadido un captcha a nuestro formulario de registro e inicio de sesion.
+                    Hemos añadido para nuestro proyecto el reCAPTCHA v3 de Google ya que es el mas facil de implementar y el que menos molesta al usuario.
+                    La puntuación se basa en las interacciones con su sitio y le permite tomar las medidas adecuadas para su sitio.
+                    Es por esto, que ha diferencia de otros captchas, este no muestra ninguna imagen al usuario pero si que se ejecuta en segundo plano y si detecta que el usuario es un bot, se le bloquea el acceso.
             \clearpage
             \subsection{Contraseñas debiles o por defecto}
+                \subsubsection{Descripción}
+                    Las contraseñas débiles o por defecto son contraseñas que son fáciles de adivinar o que se utilizan en muchos sistemas diferentes. Esto puede permitir a un atacante obtener acceso no autorizado a un sistema o aplicación.
+                \subsubsection{Solución}
+                    Para solucionar este problema, hemos hecho dos cosas:
+                    \begin{itemize}
+                        \item Añadir un JS que asegura que las contraseñas de nuestros usuarios cumplen con los requisitos minimos de seguridad.
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.7/2.1.png}
+                            \caption{JS de validacion de contraseñas}
+                        \end{figure}
+                        \item Cambiar las contraseñas de nuestros servicios como phpMyAdmin, MariaDB, etc.
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.7/2.2.png}
+                            \caption{Contraseña antes del cambio}                            
+                        \end{figure}
+                        \begin{itemize}
+                            \item Estas contraseñas se ven dentro del .env el cual no se deberia subir pero al ser un trabajo se ha subido al repositorio.
+                        \end{itemize}
+                    \end{itemize}
             \clearpage
             \subsection{Invalidacion de sesiones}
                     \subsubsection{Descripción}
+                        La invalidación de sesiones se refiere a la práctica de terminar una sesión de usuario cuando el usuario sale de una aplicación o sitio web. Esto puede ayudar a prevenir ataques de tipo secuestro de sesión, en los que un atacante puede tomar el control de una sesión de usuario activa.
+                    \subsubsection{Solución}
+                        En este punto tambien hemos puesto dos soluciones al problema:
+                        \begin{enumerate}
+                            \item Hemos añadido un boton de cerrar sesion en la pagina de perfil de usuario.
+                            \item La cookie se cierra automaticamente al cerrar el navegador.
+                        \end{enumerate}
+                        Con estas dos soluciones, si un usuario se olvida de cerrar sesion, el sistema lo hara automaticamente y si un atacante consigue la sesion de un usuario, esta se invalidara de igual forma.
             \clearpage
         \section{Fallos en la integridad de datos y software}
-            \subsection{Firmas digitales}
-            \clearpage
-            \subsection{Bibliotecas y dependencias confiables}
-            \clearpage
-            \subsection{Uso de herramientas de analisis}
+            Los fallos en la integridad de datos y software pueden tener graves consecuencias en la seguridad y confiabilidad de sistemas y aplicaciones. Estos fallos pueden ocurrir debido a diversas razones, y es importante abordarlos adecuadamente para mantener la integridad de los datos y el funcionamiento del software.
+            \subsection{Copias de seguridad}
             \clearpage
         \section{Fallos en la monitorizacion de la seguridad}
-            \subsection{Configuracion de logs del sistema}
+            \subsection{Auditorias de seguridad}
+                \subsubsection{Descripción}
+                    Una auditoría de seguridad es un proceso sistemático de evaluación y revisión de sistemas, redes, aplicaciones o entornos tecnológicos con el propósito de identificar vulnerabilidades, debilidades y riesgos de seguridad. El objetivo principal de una auditoría de seguridad es garantizar que los controles de seguridad estén implementados adecuadamente y cumplan con los estándares de seguridad, y proporcionar recomendaciones para mejorar la protección de activos y datos contra amenazas y ataques cibernéticos.
+                \subsubsection{Solución}
+                    La solucion a este problema es realizar una auditoria de seguridad de forma periodica para detectar posibles fallos de seguridad. 
             \clearpage
-            \subsection{Implementacion de un log}
+            \subsection{Configuracion de logs del sistema}
+                \subsubsection{Descripción}
+                    Los logs del sistema son una herramienta de seguridad que permite a los administradores de sistemas y a los equipos de seguridad supervisar y analizar la actividad de los sistemas y las redes. Los logs del sistema pueden utilizarse para detectar y analizar incidentes de seguridad, así como para identificar y prevenir posibles amenazas.
+                \subsubsection{Solución}
+                    Para solucionar este problema, hemos hecho varias cosas:
+                    \begin{itemize}
+                        \item Hemos configurado los logs del sistema para que los archivos relacionados con apache y php se guarden en un logo
+                        \item Hemos implementado una logica del log del lado del servidor para guardar los logs de los usuarios.
+                    \end{itemize}
             \clearpage
         \section{Falsificacion de Solicitud del Lado del Servidor (SSRF)}
             \subsection{Control del trafico}
@@ -392,17 +452,18 @@
             \subsection{Asegurar el codigo}
                 GitHub
             \clearpage
-        \section{Problemas de calidad de codigo}
-            \subsection{Revision de calidad del codigo}
-            \clearpage
         \section{Problemas de denegacion de servicios}
             \subsection{Pruebas de rendimiento}
             \clearpage
     \chapter{Segunda auditoria}
         \section{ZAP}
+        \clearpage
         \section{sqlmap}
+        \clearpage
         \section{nmap}
+        \clearpage
         \section{Metaexploit}
+        \clearpage
     \chapter{Conclusiones}
     \chapter{Bibliografia}
         \begin{itemize}
@@ -410,5 +471,6 @@
             \item GPT-3.5. (2023). Respuestas a preguntas varias. OpenAI. \url{https://www.openai.com/}
             \item GitHub Copilot. (2022). Autocompletado. GitHub. \url{https://github.com/features/copilot}
             \item PHP. (2021). Manual de PHP. PHP. \url{https://www.php.net/manual/es/}
+            \item reCAPTCHA. (2018). Documentacion de reCAPTCHA. Google. \url{https://developers.google.com/recaptcha/docs/v3}
         \end{itemize}
 \end{document}
