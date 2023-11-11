@@ -18,7 +18,7 @@ services:
 
   db:
     container_name: db
-    image: mariadb:latest
+    image: mariadb:11.1.2
     restart: always
     volumes:
       - ./mysql:/var/lib/mysql
@@ -32,7 +32,7 @@ services:
 
   phpmyadmin:
     container_name: phpmyadmin
-    image: phpmyadmin/phpmyadmin:latest
+    image: phpmyadmin/phpmyadmin:5.2.1
     links:
       - db
     ports:
