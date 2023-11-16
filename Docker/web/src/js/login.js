@@ -28,6 +28,10 @@ function iniciarSesion() {
             });
         });
     }
+    else
+    {
+        logger("login-form");
+    }
 }
 
 function tramitarInicio() {

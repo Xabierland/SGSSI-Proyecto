@@ -175,7 +175,7 @@
                 \subsubsection{Descripción}
                     El Cross-Site Scripting (XSS) es una vulnerabilidad de seguridad informática que permite a un atacante inyectar código malicioso (por lo general JavaScript) en páginas web que son vistas por otros usuarios. El XSS permite a los atacantes ejecutar scripts en el navegador de un usuario, lo que puede secuestrar sesiones de usuario, desfigurar sitios web, robar información confidencial y distribuir malware.
                 \subsubsection{Solución}
-                    La solucion a este problema se vera mas adelante en la seccion 3.5
+                    La solucion a este problema se vera mas adelante en la seccion 3.5.5
             \clearpage
             \subsection{Cross-Site Request Forgery}
                 \subsubsection{Descripción}
@@ -437,11 +437,13 @@
                 \subsubsection{Descripción}
                     Los logs del sistema son una herramienta de seguridad que permite a los administradores de sistemas y a los equipos de seguridad supervisar y analizar la actividad de los sistemas y las redes. Los logs del sistema pueden utilizarse para detectar y analizar incidentes de seguridad, así como para identificar y prevenir posibles amenazas.
                 \subsubsection{Solución}
-                    Para solucionar este problema, hemos hecho varias cosas:
-                    \begin{itemize}
-                        \item Hemos configurado los logs del sistema para que los archivos relacionados con apache y php se guarden en un logo
-                        \item Hemos implementado una logica del log del lado del servidor para guardar los logs de los usuarios.
-                    \end{itemize}
+                    Para solucionar este problema, hemos implementado una logica del log del lado del servidor para guardar los logs de los usuarios al cometer errores.
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=0.9\textwidth]{./img/vulnerabilidades/3.9/2.2.png}
+                        \caption{Logs del lado del servidor}
+                    \end{figure}
+                    
             \clearpage
         \section{Falsificacion de Solicitud del Lado del Servidor (SSRF)}
             \subsection{Control del trafico}
@@ -452,9 +454,6 @@
             \clearpage
             \subsection{Asegurar el codigo}
                 GitHub
-            \clearpage
-        \section{Problemas de denegacion de servicios}
-            \subsection{Pruebas de rendimiento}
             \clearpage
     \chapter{Segunda auditoria}
         \section{ZAP}

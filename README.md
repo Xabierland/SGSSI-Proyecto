@@ -61,9 +61,8 @@ docker-compose up
   * [X] Componentes vulnerables y obsoletos
   * [X] Fallos de identificacion y autenticacion
   * [ ] Fallos de la integridad de datos y software
-  * [ ] Fallos en la monitorizacion de la seguridad
+  * [X] Fallos en la monitorizacion de la seguridad
   * [ ] Falsificacion de Solicitud del Lado del Servidor (SSRF)
-  * [ ] Problemas de denegacion de servicios
 * [ ] Segunda auditoria
 * [ ] Conclusiones
 

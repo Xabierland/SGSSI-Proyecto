@@ -35,6 +35,10 @@ function registro() {
             });
         });
     }
+    else
+    {
+        logger("registro-form");
+    }
 }
 
 function tramitarRegistro() {

@@ -46,7 +46,7 @@ if ($responseKeys["success"] == true && $responseKeys["score"] >= $recaptchaScor
         }
     } else {
         // Usuario no encontrado
-        echo "Usuario no encontrado";
+        echo "Inicio de sesión fallido";
     }
 } else {
     // La verificación de reCAPTCHA v3 falló

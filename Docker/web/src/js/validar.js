@@ -48,3 +48,23 @@ function validarDNI(nif) {
     return letraProporcionada === letraCorrecta;
 }
 
+function logger(form) {
+    // Recopila los datos del formulario
+    var formData = new FormData(document.getElementById(form));
+
+    $.ajax({
+        url: "../php/log.php",
+        method: "POST",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (data) {
+            // Maneja la respuesta del servidor (puede ser una redirección, mensaje de éxito, etc.)
+            location.reload();
+        },
+        error: function () {
+            alert("Error al escribir en el log.");
+        }
+    });
+}
+
