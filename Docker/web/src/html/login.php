@@ -1,4 +1,11 @@
 <?php session_start();?>
+<meta http-equiv="Content-Security-Policy" content="
+    default-src 'self' https://www.google.com/ 'unsafe-inline';
+    script-src 'self' https://code.jquery.com/ https://www.google.com/ https://www.gstatic.com 'unsafe-inline';
+    style-src 'self';
+    img-src 'self' data:;
+    form-action 'self';
+    ">
 <div class="form login">
     <h2>Formulario de Inicio de Sesión</h2>
     <form id="login-form" action="../php/login.php" method="post">

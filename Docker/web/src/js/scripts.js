@@ -1,4 +1,20 @@
 // validaciones.js
+function cargarContenido(opcion, event) {
+    event.preventDefault();
+    $.ajax({
+        url: opcion, // Cambiar la extensión a .html
+        method: "GET",
+        success: function (data) 
+        {
+            $("#content").html(data);
+        },
+        error: function () 
+        {
+            $("#content").html("Error al cargar el contenido.");
+        }
+    });
+}
+
 function validarNumeroTelefono(telefono) {
     // Expresión regular para validar números de teléfono en formato de 9 dígitos
     var regex = /^[0-9]{9}$/;

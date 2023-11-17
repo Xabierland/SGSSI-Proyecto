@@ -21,9 +21,10 @@ if (!isset($_SESSION['csrf_token'])) {
     <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
     <meta http-equiv="Content-Security-Policy" content="
     default-src 'self' https://www.google.com/ 'unsafe-inline';
-    script-src 'self' https://code.jquery.com/jquery-3.7.1.min.js https://www.google.com/ https://www.gstatic.com 'unsafe-inline';
+    script-src 'self' https://code.jquery.com/ https://www.google.com/ https://www.gstatic.com 'unsafe-inline';
     style-src 'self';
     img-src 'self' data:;
+    form-action 'self';
     ">
 
     <title>Cine Nómada</title>
@@ -31,25 +32,7 @@ if (!isset($_SESSION['csrf_token'])) {
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="https://www.google.com/recaptcha/api.js?render=6Lc-xQspAAAAAMNfCH3z01L4BvbxZD2fTyLvnE7r"></script>
-    <script src="js/validar.js"></script> 
-    <script>
-        function cargarContenido(opcion, event) 
-        {
-            event.preventDefault();
-            $.ajax({
-                url: opcion, // Cambiar la extensión a .html
-                method: "GET",
-                success: function (data) 
-                {
-                    $("#content").html(data);
-                },
-                error: function () 
-                {
-                    $("#content").html("Error al cargar el contenido.");
-                }
-            });
-        }
-    </script>
+    <script src="js/scripts.js"></script> 
 </head>
 <body>
     <header>

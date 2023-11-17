@@ -439,12 +439,23 @@
         \section{Fallos en la integridad de datos y software}
             Los fallos en la integridad de datos y software pueden tener graves consecuencias en la seguridad y confiabilidad de sistemas y aplicaciones. Estos fallos pueden ocurrir debido a diversas razones, y es importante abordarlos adecuadamente para mantener la integridad de los datos y el funcionamiento del software.
             \subsection{Copias de seguridad}
+                \subsubsection{Descripción}
+                    Las copias de seguridad son una medida de seguridad que permite a los usuarios y administradores de sistemas restaurar datos y sistemas a un estado anterior en caso de que se produzca una pérdida de datos o un fallo del sistema. Las copias de seguridad pueden ser útiles para recuperar datos perdidos debido a errores humanos, ataques de malware, fallos de hardware, desastres naturales, etc.
+                \subsubsection{Solución}
+                    Para solucionar este problema, demos de realizar una copia de seguridad de nuestra base de datos cada cierto periodo de tiempo.
+                    En nuestro caso accederemos a la base de datos mediante el phpMyAdmin y exportaremos la base de datos en un archivo .sql
             \clearpage
             \subsection{CI/CD}
                 \subsubsection{Descripción}
                     CI/CD es un conjunto de prácticas y herramientas que permiten a los equipos de desarrollo de software entregar cambios de código de forma rápida y fiable. CI/CD es un acrónimo de Integración Continua (CI) y Despliegue Continua (CD). CI/CD es una práctica fundamental para DevOps.
                 \subsubsection{Solución}
                     Para solucionar este problema podemos generar un pipeline de CI/CD en GitHub Actions mediante los Workflows.
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.8/2.1.png}
+                        \caption{Pipeline de CI/CD}
+                    \end{figure}
+                    Este no es un pipeline completo con todas las pruebas unitarias ni la creacion de las imagenes ni una despliegue como el que podria ser Kubernetes pero sirve como ejemplo para este trabajo.
             \clearpage
         \section{Fallos en la monitorizacion de la seguridad}
             Los fallos en la monitorización de la seguridad se refieren a deficiencias o problemas en los sistemas y procesos diseñados para vigilar y evaluar la seguridad de una red, sistema informático, aplicación o entorno en general.

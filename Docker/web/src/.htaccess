@@ -27,4 +27,3 @@ Header always set Feature-Policy "geolocation 'self'; camera 'none'"
 
 # 13 Cabeceras Expect-CT
 Header always set Expect-CT "enforce, max-age=86400"
-
