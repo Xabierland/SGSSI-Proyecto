@@ -478,7 +478,17 @@
                     
             \clearpage
     \chapter{Segunda auditoria}
+        Tras arreglar los problemas de la primera auditoria, hemos vuelto a realizar una auditoria de seguridad para comprobar que no se han introducido nuevos problemas de seguridad.
         \section{ZAP}
+            Para llevar la misma estructura que en la primera auditoria, hemos usado la misma herramienta para realizar la segunda auditoria.
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.8\textwidth]{./img/audit2/zap1.png}
+                \caption{Listado de errores de ZAP de la segunda auditoria}
+            \end{figure}
+            Aunque veamos que todavia hay errores estos en realidad son dados porque ZAP no puede comprobar algunas de las librerias que usamos en nuestro proyecto como son jQuery y reCAPTCHA.
+            
+            Aun asi, ambas librerias hacen que nuestra web sea mas segura por lo que no las vamos a eliminar de nuestro proyecto solo para que ZAP no de errores.
         \clearpage
         \section{sqlmap}
         \clearpage
