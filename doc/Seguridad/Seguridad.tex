@@ -59,7 +59,6 @@
     \chapter{Vulnerabilidades}
         \section{Rotura de control de acceso}
             La rotura de control de acceso es una vulnerabilidad que permite a un atacante acceder a recursos restringidos o privilegiados, ya sea por un error en la implementación de la autenticación y autorización o por un error en la lógica de control de acceso.
-            Dentro de nuestro sistema tenemos varios fallos de rotura de control y ahora hablaremos de ellas y de como las hemos solucionado.
             \subsection{Control de acceso}
                 \subsubsection{Descripción}
                     En nuestro sistema, un usuario puede modificar sus datos personales, pero también puede modificar los datos de otros usuarios. 
@@ -93,6 +92,7 @@
                     Esta misma error tambien ha sido corregido en el catalogo.
             \clearpage       
         \section{Fallos criptográficos}
+            Los "fallos criptográficos" se refieren a debilidades o errores en el diseño, implementación o uso de algoritmos criptográficos que comprometen la seguridad de la información protegida mediante técnicas de cifrado y protección.
             \subsection{Cifrado de extremo a extremo}
                 \subsubsection{Descripción}
                 El cifrado de extremo a extremo es un método de seguridad informática en el que la información se cifra en el punto de origen y solo se descifra en el punto de destino. Esto significa que los datos están protegidos durante su transmisión y solo son legibles para la parte destinataria que posee la clave de descifrado correspondiente.
@@ -159,6 +159,7 @@
                     \end{figure}
             \clearpage
         \section{Inyección}
+            En el ámbito de la seguridad informática y el desarrollo de software, el término "inyección" se refiere a una clase de vulnerabilidades que permite a un atacante introducir y ejecutar código malicioso en una aplicación o sistema. 
             \subsection{SQL Injection}
                 \subsubsection{Descripción}
                     La inyección SQL es una vulnerabilidad de seguridad informática que permite a un atacante modificar las consultas SQL que se ejecutan en una base de datos subyacente. Esto puede permitir a un atacante obtener información confidencial, alterar o eliminar datos, o incluso comprometer completamente el sistema.
@@ -181,6 +182,17 @@
                 \subsubsection{Descripción}
                     El Cross-Site Request Forgery (CSRF) es una vulnerabilidad de seguridad informática que permite a un atacante forzar a un usuario autenticado a ejecutar acciones no deseadas en una aplicación web en la que confía. El CSRF puede utilizarse para realizar acciones como transferencias de fondos, cambios de contraseñas, compras, etc.
                 \subsubsection{Solución}
+                    Para solucionar este problema, hemos añadido un token CSRF a nuestro sitio web.
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.3/3.1.png}
+                        \caption{Token CSRF}
+                    \end{figure}
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.3/3.2.png}
+                        \caption{Comprobacion de token CSRF}
+                    \end{figure}
             \clearpage
         \section{Diseño inseguro}
             El "diseño inseguro" se refiere a la presencia de debilidades fundamentales en el diseño de una aplicación web que pueden ser explotadas por atacantes para comprometer la seguridad.
@@ -205,7 +217,7 @@
                     Dado que esto es un trabajo el .env sera incluido para poder comprobar que funciona correctamente.
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.5/2.1.png}
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.5/1.1.png}
                         \caption{docker-compose sin informacion sensible}
                     \end{figure}
             \clearpage
@@ -216,7 +228,7 @@
                     Para solucionar este problema, hemos añadido una cabecera 'Content-Security-Policy' con los siguientes valores:
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.5/3.1.png}
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.5/2.1.png}
                         \caption{Cabecera CSP}
                     \end{figure}
             \clearpage
@@ -227,7 +239,7 @@
                     Para solucionar este problema crearemos una cabecera 'Cache-Control' con el valor 'no-store' para que el navegador no almacene en cache la pagina.
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.5/11.1.png}
+                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.5/3.1.png}
                         \caption{Cabecera Cache-Control}
                     \end{figure}
             \clearpage
@@ -365,6 +377,7 @@
                     \end{figure}
             \clearpage
         \section{Componentes vulnerables y obsoletos}
+            Se refiere a partes o elementos dentro de un sistema, software o hardware, que presentan vulnerabilidades de seguridad debido a su antigüedad o a la falta de actualizaciones.
             \subsection{Control de versiones de los componentes}
                 \subsubsection{Descripción}
                     Es crítico mantener actualizados los sistemas operativos y el software de seguridad con las últimas actualizaciones y parches de seguridad.
@@ -379,6 +392,7 @@
                     Es recomendable en estos casos no usar latest ya que en el pasado ha sido un problema de seguridad al obtener un atancante acceso a la imagen y alterandola provocando que todo el que use latest se descargase la version infectada.
             \clearpage
         \section{Fallos de identificación y autenticación}
+            Los fallos de identificación y autenticación se refieren a deficiencias o problemas en los procesos y mecanismos diseñados para verificar la identidad de un usuario y asegurar que la persona o entidad que intenta acceder a un sistema o recurso es realmente quien afirma ser. 
             \subsection{Captcha}
                 \subsubsection{Descripción}
                     Un captcha es un tipo de prueba de Turing que se utiliza para determinar si el usuario es o no humano. Los captchas se utilizan para prevenir ataques de tipo bot, como el spam y el abuso de servicios web.
@@ -426,7 +440,14 @@
             Los fallos en la integridad de datos y software pueden tener graves consecuencias en la seguridad y confiabilidad de sistemas y aplicaciones. Estos fallos pueden ocurrir debido a diversas razones, y es importante abordarlos adecuadamente para mantener la integridad de los datos y el funcionamiento del software.
             \subsection{Copias de seguridad}
             \clearpage
+            \subsection{CI/CD}
+                \subsubsection{Descripción}
+                    CI/CD es un conjunto de prácticas y herramientas que permiten a los equipos de desarrollo de software entregar cambios de código de forma rápida y fiable. CI/CD es un acrónimo de Integración Continua (CI) y Despliegue Continua (CD). CI/CD es una práctica fundamental para DevOps.
+                \subsubsection{Solución}
+                    Para solucionar este problema podemos generar un pipeline de CI/CD en GitHub Actions mediante los Workflows.
+            \clearpage
         \section{Fallos en la monitorizacion de la seguridad}
+            Los fallos en la monitorización de la seguridad se refieren a deficiencias o problemas en los sistemas y procesos diseñados para vigilar y evaluar la seguridad de una red, sistema informático, aplicación o entorno en general.
             \subsection{Auditorias de seguridad}
                 \subsubsection{Descripción}
                     Una auditoría de seguridad es un proceso sistemático de evaluación y revisión de sistemas, redes, aplicaciones o entornos tecnológicos con el propósito de identificar vulnerabilidades, debilidades y riesgos de seguridad. El objetivo principal de una auditoría de seguridad es garantizar que los controles de seguridad estén implementados adecuadamente y cumplan con los estándares de seguridad, y proporcionar recomendaciones para mejorar la protección de activos y datos contra amenazas y ataques cibernéticos.
@@ -444,16 +465,6 @@
                         \caption{Logs del lado del servidor}
                     \end{figure}
                     
-            \clearpage
-        \section{Falsificacion de Solicitud del Lado del Servidor (SSRF)}
-            \subsection{Control del trafico}
-               Wireshark/tcpdump
-            \clearpage
-            \subsection{Validacion de accesos}
-                Snort
-            \clearpage
-            \subsection{Asegurar el codigo}
-                GitHub
             \clearpage
     \chapter{Segunda auditoria}
         \section{ZAP}

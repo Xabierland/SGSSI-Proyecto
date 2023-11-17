@@ -1,3 +1,4 @@
+<?php session_start();?>
 <div class="form upload">
     <h2>Crear Película</h2>
     <form id="upload-form" action="../php/upload.php" method="POST">
@@ -37,6 +38,8 @@
             </tr>
         </table>
         <br>
-        <input type="submit" value="Guardar Película">
+        <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+        <button class="g-recaptcha" data-sitekey="6Lc-xQspAAAAAMNfCH3z01L4BvbxZD2fTyLvnE7r" id="btnEnviar" name="btnEnviar" type="button" onclick="upload()">Subir</button>
     </form>
 </div>

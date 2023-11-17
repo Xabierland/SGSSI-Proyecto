@@ -18,7 +18,6 @@ if (isset($_GET['id']) && is_numeric($_GET['id']))
             $telefono = $_POST['telefono'];
             $fechaNacimiento = $_POST['fechaNacimiento'];
             $email = $_POST['email'];
-            $passwd = $_POST['passwd'];
             $admin = isset($_POST['admin']) ? 1 : 0; // Comprobar si el usuario es administrador
 
             // Consulta SQL para actualizar los datos del usuario
@@ -29,7 +28,6 @@ if (isset($_GET['id']) && is_numeric($_GET['id']))
                     telefono = '$telefono',
                     fechaN = '$fechaNacimiento',
                     email = '$email',
-                    passwd = '$passwd',
                     admin = '$admin'
                     WHERE id = $userId";
 
@@ -59,9 +57,9 @@ if (isset($_GET['id']) && is_numeric($_GET['id']))
             echo '<tr><td>Teléfono:</td><td><input type="text" name="telefono" value="' . $row["telefono"] . '"></td></tr>';
             echo '<tr><td>Fecha de Nacimiento:</td><td><input type="date" name="fechaNacimiento" value="' . $row["fechaN"] . '"></td></tr>';
             echo '<tr><td>Correo Electrónico:</td><td><input type="email" name="email" value="' . $row["email"] . '"></td></tr>';
-            echo '<tr><td>Contraseña:</td><td><input type="text" name="passwd" value="' . $row["passwd"] . '"></td></tr>';
             echo '<tr><td>Admin:</td><td><input type="checkbox" name="admin" ' . ($row["admin"] ? 'checked' : '') . '></td></tr>';
             echo '</table>';
+            echo '<br>';
             echo '<input type="submit" name="actualizar" value="Guardar Cambios">';
             echo '</form>';
             echo '</div>';
@@ -83,7 +81,6 @@ if (isset($_GET['id']) && is_numeric($_GET['id']))
             $telefono = $_POST['telefono'];
             $fechaNacimiento = $_POST['fechaNacimiento'];
             $email = $_POST['email'];
-            $passwd = $_POST['passwd'];
 
             // Consulta SQL para actualizar los datos del usuario
             $sql = "UPDATE usuarios SET
@@ -93,7 +90,6 @@ if (isset($_GET['id']) && is_numeric($_GET['id']))
                     telefono = '$telefono',
                     fechaN = '$fechaNacimiento',
                     email = '$email',
-                    passwd = '$passwd',
                     WHERE id = $userId";
 
             if ($conn->query($sql) === TRUE) {
@@ -121,8 +117,8 @@ if (isset($_GET['id']) && is_numeric($_GET['id']))
             echo '<tr><td>Teléfono:</td><td><input type="text" name="telefono" value="' . $row["telefono"] . '"></td></tr>';
             echo '<tr><td>Fecha de Nacimiento:</td><td><input type="date" name="fechaNacimiento" value="' . $row["fechaN"] . '"></td></tr>';
             echo '<tr><td>Correo Electrónico:</td><td><input type="email" name="email" value="' . $row["email"] . '"></td></tr>';
-            echo '<tr><td>Contraseña:</td><td><input type="text" name="passwd" value="' . $row["passwd"] . '"></td></tr>';
             echo '</table>';
+            echo '<br>';
             echo '<input type="submit" name="actualizar" value="Guardar Cambios">';
             echo '</form>';
             echo '</div>';

@@ -6,6 +6,11 @@ session_start([
     'cookie_httponly' => true,        // La cookie solo es accesible a través de HTTP.
     'cookie_samesite' => 'Lax',       // Define la política de SameSite (puede ser 'Lax' o 'Strict').
 ]);
+
+// Generar token CSRF si no existe
+if (!isset($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
 ?>
 
 <!DOCTYPE html>
@@ -26,9 +31,7 @@ session_start([
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="https://www.google.com/recaptcha/api.js?render=6Lc-xQspAAAAAMNfCH3z01L4BvbxZD2fTyLvnE7r"></script>
-    <script src="js/validar.js"></script>  
-    <script src="js/login.js"></script>   
-    <script src="js/register.js"></script>   
+    <script src="js/validar.js"></script> 
     <script>
         function cargarContenido(opcion, event) 
         {
@@ -68,14 +71,14 @@ session_start([
                 // Si hay una sesión activa, muestra el enlace para cerrar sesión
                 echo '<li><a href="" onclick="cargarContenido(\'php/profile.php?id=' . $_SESSION['user_id'] . '\', event)">Perfil</a></li>';
                 echo '<li>|</li>';
-                echo '<li><a href="" onclick="cargarContenido(\'html/upload.html\', event)">Subir Pelicula</a></li>';
+                echo '<li><a href="" onclick="cargarContenido(\'html/upload.php\', event)">Subir Pelicula</a></li>';
                 echo '<li>|</li>';
                 echo '<li><a href="" onclick="cargarContenido(\'php/logout.php\', event)">Cerrar Sesión</a></li>';
             } else {
                 // Si no hay sesión activa, muestra el enlace para iniciar sesión y registrarse
-                echo '<li><a href="" onclick="cargarContenido(\'html/login.html\', event)">Iniciar Sesión</a></li>';
+                echo '<li><a href="" onclick="cargarContenido(\'html/login.php\', event)">Iniciar Sesión</a></li>';
                 echo '<li>|</li>';
-                echo '<li><a href="" onclick="cargarContenido(\'html/register.html\', event)">Registrarse</a></li>';
+                echo '<li><a href="" onclick="cargarContenido(\'html/register.php\', event)">Registrarse</a></li>';
             }
             ?>
         </ul>
