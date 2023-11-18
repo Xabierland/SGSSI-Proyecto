@@ -42,19 +42,57 @@
         La idea de esta auditoria es la de encontrar los fallos de seguridad que tiene nuestro sistema web para en el posterior capitulo de este documento comentarlos y solucionarlos.\\
         \section{ZAP}
             Para empezar con la primera auditoria ejecutaremos el proxy ZAP como se nos ha propuesto en clase.
-            Al ejecutarla en nuestra pagina web nos encontramos con el siguiente listado de errores:
+            Al ejecutarla en nuestra pagina web nos encontramos con el siguiente listado de errores y fallos de configuracion:
             \begin{figure}[H]
                 \centering
                 \includegraphics[width=\textwidth]{./img/audit1/zap1.png}
                 \caption{Listado de errores de la primera auditoria}
             \end{figure}
-            Como podemos ver en la imagen, tenemos un total de 11 errores, los cuales iremos comentando uno a uno en los siguientes apartados y solucionando.
+            Como podemos ver en la imagen, tenemos un total de 16 errores, los cuales iremos comentando uno a uno en los siguientes apartados y solucionando.
         \clearpage
         \section{sqlmap}
+            La siguiente herramienta que usaremos sera sqlmap, la cual nos permitira encontrar fallos de seguridad en la base de datos y en los formularios que hacen uso de ella.
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.80\textwidth]{./img/audit1/sqlmap1.png}
+                \caption{Output de sqlmap 1}
+            \end{figure}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=\textwidth]{./img/audit1/sqlmap2.png}
+                \caption{Output de sqlmap 2}
+            \end{figure}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=\textwidth]{./img/audit1/sqlmap3.png}
+                \caption{Output de sqlmap 3}
+            \end{figure}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=\textwidth]{./img/audit1/sqlmap4.png}
+                \caption{Output de sqlmap 4}
+            \end{figure}
+            Al terminar este proceso podemos ver que nos ha sacado todo el contenido de la base de datos por pantalla ademas de la version del servidor, de php y de la propia base de datos.
+
+            Ademas al tener las contraseñas en texto plano cualquier podria loguearse como un usuario y acceder a la pagina suplandolo.
         \clearpage
         \section{nmap}
+
         \clearpage
         \section{Metaexploit}
+            En este caso he usado la herramienta Metaexploit para comprobar si nuestro sistema web es vulnerable a algun exploit conocido.
+            Tras algunas busquedas he encontrado un exploit que mediante diccionarios de contraseñas intenta loguearse en phpMyAdmin.
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=\textwidth]{./img/audit1/msf1.png}
+                \caption{Output de metasploit 1}
+            \end{figure}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=\textwidth]{./img/audit1/msf2.png}
+                \caption{Output de metasploit 2}
+            \end{figure}
+            Al tener una contraseña tan debil enseguida nos ha encontrado las credenciales de phpMyAdmin.
         \clearpage
     \chapter{Vulnerabilidades}
         \section{Rotura de control de acceso}
@@ -163,7 +201,6 @@
             \subsection{SQL Injection}
                 \subsubsection{Descripción}
                     La inyección SQL es una vulnerabilidad de seguridad informática que permite a un atacante modificar las consultas SQL que se ejecutan en una base de datos subyacente. Esto puede permitir a un atacante obtener información confidencial, alterar o eliminar datos, o incluso comprometer completamente el sistema.
-                \subsubsection{PoC}
                 \subsubsection{Solución}
                     Para solucionar este problema, hemos modificado el codigo que procesa las consultas SQL para que no se puedan inyectar consultas SQL.
                     \begin{figure}[H]

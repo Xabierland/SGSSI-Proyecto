@@ -1,7 +1,7 @@
 <?php
 $servername = "db"; // Cambia esto al nombre de tu servidor si es diferente
-$username = "admin"; // Cambia esto a tu nombre de usuario de la base de datos
-$password = "test"; // Cambia esto a tu contraseña de la base de datos
+$username = "SGSSI"; // Cambia esto a tu nombre de usuario de la base de datos
+$password = "Sgssi1234@"; // Cambia esto a tu contraseña de la base de datos
 $database = "database"; // Cambia esto al nombre de tu base de datos
 
 // Crear una conexión
