@@ -1,7 +1,7 @@
 \documentclass{report}
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{graphicx, longtable, float, titlesec, hyperref}
+\usepackage{graphicx, longtable, float, titlesec, hyperref, xcolor}
 
 \hypersetup{
     hidelinks = true
@@ -455,6 +455,8 @@
                     Hemos añadido para nuestro proyecto el reCAPTCHA v3 de Google ya que es el mas facil de implementar y el que menos molesta al usuario.
                     La puntuación se basa en las interacciones con su sitio y le permite tomar las medidas adecuadas para su sitio.
                     Es por esto, que ha diferencia de otros captchas, este no muestra ninguna imagen al usuario pero si que se ejecuta en segundo plano y si detecta que el usuario es un bot, se le bloquea el acceso.
+                    \\\\
+                    \textcolor{red}{\textbf{Nota:} reCAPTCHA v3 utiliza un sistema de puntuaciones que gestiona la propia google. Esto puede hacer que al conectarte desde una VPN o una red publica te bloquee el acceso. Ten esto en cuenta si estas accediendo desde la red de la universidad.} 
             \clearpage
             \subsection{Contraseñas debiles o por defecto}
                 \subsubsection{Descripción}
