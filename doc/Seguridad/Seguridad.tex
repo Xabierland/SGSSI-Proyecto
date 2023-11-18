@@ -39,16 +39,20 @@
         
         Este proyecto representa un ejercicio académico valioso que no solo demuestra la comprensión de los conceptos de seguridad informática, sino que también ofrece la oportunidad de aplicar de manera práctica las habilidades adquiridas en la detección y mitigación de riesgos en entornos web. A través de esta experiencia, se espera adquirir un conocimiento más profundo y aplicable en el campo de la seguridad informática y estén mejor preparados para enfrentar desafíos en el mundo real.
     \chapter{Primera auditoria}
-        La idea de esta auditoria es la de encontrar los fallos de seguridad que tiene nuestro sistema web para en el posterior capitulo de este documento comentarlos y solucionarlos.\\
+        La idea de esta auditoria es la de encontrar los fallos de seguridad que tiene nuestro sistema web para poder solucionarlos en el sigueite capitulo de este documento.
         \section{ZAP}
             Para empezar con la primera auditoria ejecutaremos el proxy ZAP como se nos ha propuesto en clase.
+            ZAP es una herramienta de seguridad de aplicaciones web de código abierto que se utiliza para encontrar automáticamente vulnerabilidades en las aplicaciones web. Está diseñado para ser utilizado por personas con una amplia gama de niveles de seguridad y experiencia de seguridad, y como tal es ideal para desarrolladores y probadores funcionales que son nuevos en la seguridad de las aplicaciones web.
+            
             Al ejecutarla en nuestra pagina web nos encontramos con el siguiente listado de errores y fallos de configuracion:
             \begin{figure}[H]
                 \centering
-                \includegraphics[width=\textwidth]{./img/audit1/zap1.png}
+                \includegraphics[width=0.8\textwidth]{./img/audit1/zap1.png}
                 \caption{Listado de errores de la primera auditoria}
             \end{figure}
-            Como podemos ver en la imagen, tenemos un total de 16 errores, los cuales iremos comentando uno a uno en los siguientes apartados y solucionando.
+            Como podemos ver en la imagen, tenemos un total de 16 errores.
+            Estos errores son por lo general de configuraciones tanto del servidor web como de la pagina web.
+
         \clearpage
         \section{sqlmap}
             La siguiente herramienta que usaremos sera sqlmap, la cual nos permitira encontrar fallos de seguridad en la base de datos y en los formularios que hacen uso de ella.
@@ -77,10 +81,19 @@
             Ademas al tener las contraseñas en texto plano cualquier podria loguearse como un usuario y acceder a la pagina suplandolo.
         \clearpage
         \section{nmap}
-
+            La siguiente herramienta que usaremos sera nmap. Nmap es utilizada para descubrir hosts y servicios en una computadora en una red, creando un mapa de la misma. Para lograr su propósito, Nmap envía paquetes de datos sin procesar a través de la red y luego analiza las respuestas.
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=\textwidth]{./img/audit1/nmap1.png}
+                \caption{Output de nmap 1}
+            \end{figure}
+            Como podemos ver nmap a detectado el servidor web y nos ha arrojado informacion como su puerto y su version.
+            Esto es una vulnerabilidad ya que al saber la version se puede usar uso de bases de datos como la de exploitDB para encontrar exploits que puedan ser usados contra nuestro servidor.
         \clearpage
         \section{Metaexploit}
             En este caso he usado la herramienta Metaexploit para comprobar si nuestro sistema web es vulnerable a algun exploit conocido.
+            Metaexploit es un framework de pruebas de penetración que permite a los usuarios crear, probar y desplegar exploits contra sistemas de seguridad.
+            
             Tras algunas busquedas he encontrado un exploit que mediante diccionarios de contraseñas intenta loguearse en phpMyAdmin.
             \begin{figure}[H]
                 \centering
@@ -92,7 +105,9 @@
                 \includegraphics[width=\textwidth]{./img/audit1/msf2.png}
                 \caption{Output de metasploit 2}
             \end{figure}
-            Al tener una contraseña tan debil enseguida nos ha encontrado las credenciales de phpMyAdmin.
+            Al tener una contraseña tan debil enseguida nos ha encontrado las credenciales de phpMyAdmin tanto para root como para el usuario admin.
+            
+            Esto es una vulnerabilidad ya que al tener acceso a phpMyAdmin se puede acceder a la base de datos y modificarla a placer.
         \clearpage
     \chapter{Vulnerabilidades}
         \section{Rotura de control de acceso}
@@ -254,7 +269,7 @@
                     Dado que esto es un trabajo el .env sera incluido para poder comprobar que funciona correctamente.
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.5/1.1.png}
+                        \includegraphics[width=0.7\textwidth]{./img/vulnerabilidades/3.5/1.1.png}
                         \caption{docker-compose sin informacion sensible}
                     \end{figure}
             \clearpage
@@ -268,6 +283,8 @@
                         \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.5/2.1.png}
                         \caption{Cabecera CSP}
                     \end{figure}
+                    En este caso nos hemos visto obligados a usar la etiqueta 'unsafe-inline' ya que si no la usamos no se cargan las bibliotecas de jQuery y reCAPTCHA.
+                    Esto podria ser un problema con librerias inseguras pero en nuestro caso no lo es ya que las librerias que usamos son de confianza.
             \clearpage
             \subsection{Cabecera Cache-Control}
                 \subsubsection{Descripción}
@@ -500,7 +517,7 @@
                 \subsubsection{Descripción}
                     Una auditoría de seguridad es un proceso sistemático de evaluación y revisión de sistemas, redes, aplicaciones o entornos tecnológicos con el propósito de identificar vulnerabilidades, debilidades y riesgos de seguridad. El objetivo principal de una auditoría de seguridad es garantizar que los controles de seguridad estén implementados adecuadamente y cumplan con los estándares de seguridad, y proporcionar recomendaciones para mejorar la protección de activos y datos contra amenazas y ataques cibernéticos.
                 \subsubsection{Solución}
-                    La solucion a este problema es realizar una auditoria de seguridad de forma periodica para detectar posibles fallos de seguridad. 
+                    La solucion a este problema es realizar un plan de seguridad para nuestro sistema y realizar auditorias de seguridad cada cierto tiempo para comprobar que no se han introducido nuevos problemas de seguridad.
             \clearpage
             \subsection{Configuracion de logs del sistema}
                 \subsubsection{Descripción}
@@ -512,7 +529,6 @@
                         \includegraphics[width=0.9\textwidth]{./img/vulnerabilidades/3.9/2.2.png}
                         \caption{Logs del lado del servidor}
                     \end{figure}
-                    
             \clearpage
     \chapter{Segunda auditoria}
         Tras arreglar los problemas de la primera auditoria, hemos vuelto a realizar una auditoria de seguridad para comprobar que no se han introducido nuevos problemas de seguridad.
@@ -528,12 +544,47 @@
             Aun asi, ambas librerias hacen que nuestra web sea mas segura por lo que no las vamos a eliminar de nuestro proyecto solo para que ZAP no de errores.
         \clearpage
         \section{sqlmap}
+            Para comprobar que los problemas de inyeccion SQL estan solucionados, hemos usado sqlmap.
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=\textwidth]{./img/audit2/sqlmap1.png}
+                \caption{Output de sqlmap}
+            \end{figure}
+            Como podemos ver, sqlmap no ha encontrado ninguna vulnerabilidad en nuestro sistema gracias al token csrf que esta impidiendo que se tramiten las peticiones maliciosas al servidor.
+            \clearpage
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=\textwidth]{./img/audit2/sqlmap2.png}
+                \caption{Logs del servidor}
+            \end{figure}
+            Esto se debe a que nuestra pagina web esta pensada para cargar el contenido dinamicamente mediante AJAX y no mediante peticiones GET o POST.
+            Por lo tanto al no acceder antes al index.php no se crea la sesion en el navegador con los tokems reCAPTCHA, CSRF y la cookie de sesion.
+            Esto hace que sqlmap no pueda acceder a las paginas que requieren autenticacion y por lo tanto no pueda comprobar si hay vulnerabilidades.
         \clearpage
         \section{nmap}
+            Para comprobar que nuestro servidor web ya no aporta informacion sensible, hemos usado nmap.
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=\textwidth]{./img/audit2/nmap1.png}
+                \caption{Output de nmap}
+            \end{figure}
+            Como podemos ver, nmap a dejado de devolverno informacion sensible como la version de PHP o Apache y ahora nos informa de que el servidor hace una redireccion al 443 son certificado SSL.
         \clearpage
         \section{Metaexploit}
+            Por ultimo, vamos a comprobar que nuestro servidor web ya no es vulnerable a ataques de fuerza bruta.
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.9\textwidth]{./img/audit2/msf1.png}
+                \caption{Output de metasploit}
+            \end{figure}
+            Dado que hemmos cambiado las contraseñas de nuestros servicios, metasploit ya no puede acceder a ellos.
+            Esta no es la mejor solucion ya que phpMyAdmin sigue siendo vulnerable a ataques de fuerza bruta como tal, pero dado que phpMyAdmin solo es accesible desde localhost, no es un problema de seguridad.
+            Lo mismo occure con la base de datos MariaDB la cual solo es accesible mediante la web y no desde el exterior.
         \clearpage
     \chapter{Conclusiones}
+        Este proyecto ha constituido una valiosa oportunidad para constatar la vulnerabilidad intrínseca de las páginas web y servicios en línea cuando no se configuran adecuadamente. La experiencia adquirida ha demostrado ser esencial, destacando la necesidad crítica de abordar las deficiencias de seguridad que pueden comprometer la integridad y confidencialidad de los datos. En el transcurso de este proceso, hemos puesto a prueba no solo nuestras habilidades de programación, sino también nuestras capacidades de investigación, al enfrentarnos a la tarea de identificar no solo las vulnerabilidades en sí, sino de concebir métodos efectivos para su mitigación y resolución.
+        
+        La comparativa entre las pruebas de penetración realizadas y presentadas en este informe revela una transformación significativa en la seguridad de la plataforma. Los ataques previamente exitosos, que tradicionalmente se emplean contra las páginas web, han perdido su eficacia. Este resultado tangible subraya el éxito de nuestras estrategias de fortificación, evidenciando el impacto positivo de las medidas implementadas. La labor llevada a cabo no solo ha consistido en cerrar brechas de seguridad, sino también en desarrollar un entorno digital robusto y resistente, capaz de resistir los desafíos cada vez más sofisticados que plantea el panorama actual de amenazas cibernéticas. Este proyecto, en última instancia, ha fortalecido nuestra comprensión integral de la seguridad web y ha ampliado nuestras habilidades prácticas y teóricas en este campo de estudio crucial.
     \chapter{Bibliografia}
         \begin{itemize}
             \item OWASP. (2021). Informe de Vulnerabilidades. OWASP. \url{https://owasp.org/www-project-top-ten/}
@@ -541,5 +592,9 @@
             \item GitHub Copilot. (2022). Autocompletado. GitHub. \url{https://github.com/features/copilot}
             \item PHP. (2021). Manual de PHP. PHP. \url{https://www.php.net/manual/es/}
             \item reCAPTCHA. (2018). Documentacion de reCAPTCHA. Google. \url{https://developers.google.com/recaptcha/docs/v3}
+            \item sqlmap. (2017). Documentacion de sqlmap. sqlmap. \url{https://github.com/sqlmapproject/sqlmap/wiki/}
+            \item ZAP. (2023). Documentacion de ZAP. OWASP. \url{https://www.zaproxy.org/docs/}
+            \item metasploit. (2023). Documentacion de metasploit. Rapid7. \url{https://docs.rapid7.com/metasploit/}
+            \item nmap. (2020). Documentacion de nmap. nmap. \url{https://nmap.org/man/es/}
         \end{itemize}
 \end{document}
