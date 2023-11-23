@@ -41,8 +41,11 @@
     \chapter{Primera auditoria}
         La idea de esta auditoria es la de encontrar los fallos de seguridad que tiene nuestro sistema web para poder solucionarlos en el sigueite capitulo de este documento.
         \section{ZAP}
-            Para empezar con la primera auditoria ejecutaremos el proxy ZAP como se nos ha propuesto en clase.
-            ZAP es una herramienta de seguridad de aplicaciones web de código abierto que se utiliza para encontrar automáticamente vulnerabilidades en las aplicaciones web. Está diseñado para ser utilizado por personas con una amplia gama de niveles de seguridad y experiencia de seguridad, y como tal es ideal para desarrolladores y probadores funcionales que son nuevos en la seguridad de las aplicaciones web.
+            Para empezar con la primera auditoria ejecutaremos el proxy ZAP como se nos ha propuesto en clase.\\
+            
+            ZAP es una herramienta de seguridad de aplicaciones web de código abierto que se utiliza para encontrar automáticamente vulnerabilidades en las aplicaciones web. Está diseñado para ser utilizado por personas con una amplia gama de niveles de seguridad y experiencia de seguridad, y como tal es ideal para desarrolladores y probadores funcionales que son nuevos en la seguridad de las aplicaciones web.\\
+            
+            En nuestro caso usamos AJAX por lo que debemos especificar al ejecutar AJAX que usa la SPIDER AJAX en ZAP.\\
             
             Al ejecutarla en nuestra pagina web nos encontramos con el siguiente listado de errores y fallos de configuracion:
             \begin{figure}[H]
@@ -112,7 +115,17 @@
     \chapter{Vulnerabilidades}
         \section{Rotura de control de acceso}
             La rotura de control de acceso es una vulnerabilidad que permite a un atacante acceder a recursos restringidos o privilegiados, ya sea por un error en la implementación de la autenticación y autorización o por un error en la lógica de control de acceso.
-            \subsection{Control de acceso}
+            \subsection{Acceso mediante URL}
+                \subsubsection{Descripcíon}
+                    El acceso mediante URL se refiere a la práctica de manipular los parámetros presentes en una URL con el objetivo de eludir o evadir los controles de acceso implementados en un sistema o aplicación. 
+                \subsubsection{Solución}
+                    Esto no es un error en nuestra pagina web ya que el conetinido no es accedido mediante redirecciones en la pagina web sino que se hace mediante AJAX.
+                    
+                    AJAX es una tecnica de programacion que permite que una pagina web se comunique con el servidor sin necesidad de hacer redirecciones ni recargas de la pagina.
+                    
+                    Esto hace que si alguien entra en un archivo como login.php al no cargarse mediante AJAX, tampoco se cargan los archivos necesarios para que funcione por lo que es inutil.
+                \clearpage
+            \subsection{Acceso a cuenta personal}
                 \subsubsection{Descripción}
                     En nuestro sistema, un usuario puede modificar sus datos personales, pero también puede modificar los datos de otros usuarios. 
                     Esto es un fallo de rotura de control de acceso ya que un usuario no debería poder modificar los datos de otro usuario.
@@ -456,7 +469,7 @@
                     La puntuación se basa en las interacciones con su sitio y le permite tomar las medidas adecuadas para su sitio.
                     Es por esto, que ha diferencia de otros captchas, este no muestra ninguna imagen al usuario pero si que se ejecuta en segundo plano y si detecta que el usuario es un bot, se le bloquea el acceso.
                     \\\\
-                    \textcolor{red}{\textbf{Nota:} reCAPTCHA v3 utiliza un sistema de puntuaciones que gestiona la propia google. Esto puede hacer que al conectarte desde una VPN o una red publica te bloquee el acceso. Ten esto en cuenta si estas accediendo desde la red de la universidad.} 
+                    \textbf{Nota:} reCAPTCHA v3 utiliza un sistema de puntuaciones que gestiona la propia google. Esto puede hacer que al conectarte desde una VPN o una red publica te bloquee el acceso. Ten esto en cuenta si estas accediendo desde la red de la universidad.
             \clearpage
             \subsection{Contraseñas debiles o por defecto}
                 \subsubsection{Descripción}
