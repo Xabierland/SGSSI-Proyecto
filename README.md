@@ -51,20 +51,20 @@ docker-compose up
 ### Entrega 2
 
 * [X] Introduccion
-* [ ] Primera auditoria
+* [X] Primera auditoria
 * Vulnerabilidades
   * [X] Rotura de control de acceso
   * [X] Fallos criptograficos
-  * [ ] Inyeccion
+  * [X] Inyeccion
   * [X] Diseño inseguro
   * [X] Configuración de seguridad insuficiente
   * [X] Componentes vulnerables y obsoletos
   * [X] Fallos de identificacion y autenticacion
-  * [ ] Fallos de la integridad de datos y software
+  * [X] Fallos de la integridad de datos y software
   * [X] Fallos en la monitorizacion de la seguridad
-  * [ ] Falsificacion de Solicitud del Lado del Servidor (SSRF)
-* [ ] Segunda auditoria
-* [ ] Conclusiones
+  * [X] Falsificacion de Solicitud del Lado del Servidor (SSRF)
+* [X] Segunda auditoria
+* [X] Conclusiones
 
 ## FAQ
 

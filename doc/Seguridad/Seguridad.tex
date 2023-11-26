@@ -38,6 +38,10 @@
         El objetivo último es la identificación, documentación y solución de posibles vulnerabilidades, lo que contribuirá a elevar la seguridad y confiabilidad de la página web. A medida que se avance en este proceso, se aplicarán estrategias y medidas correctivas para abordar los hallazgos identificados y se establecerán salvaguardias que minimicen el riesgo de futuros incidentes de seguridad.\\
         
         Este proyecto representa un ejercicio académico valioso que no solo demuestra la comprensión de los conceptos de seguridad informática, sino que también ofrece la oportunidad de aplicar de manera práctica las habilidades adquiridas en la detección y mitigación de riesgos en entornos web. A través de esta experiencia, se espera adquirir un conocimiento más profundo y aplicable en el campo de la seguridad informática y estén mejor preparados para enfrentar desafíos en el mundo real.\\
+
+        \begin{center}
+            \texttt{\large\href{https://github.com/Xabierland/SGSSI-Proyecto}{Proyecto en GitHub}}
+        \end{center}
     \chapter{Primera auditoría}
         El objetivo principal de esta auditoría es la de encontrar los fallos de seguridad que tiene nuestro sistema web para poder solucionarlos en el sigueite capítulo de este documento.
         \section{ZAP}
@@ -45,7 +49,7 @@
             
             ZAP es una herramienta de seguridad de aplicaciones web de código abierto que se utiliza para encontrar automáticamente vulnerabilidades en las aplicaciones web. Está diseñado para ser accesible a usuarios con diversos niveles de experiencia y conocimientos en seguridad, y como tal es ideal para desarrolladores y probadores funcionales que son nuevos en el ámbito de la seguridad de aplicaciones web.\\
             
-            En nuestro caso usamos AJAX por lo que debemos especificar al ejecutar AJAX que usa la SPIDER AJAX en ZAP.\\
+            En nuestro caso usamos AJAX por lo que debemos especificar al ejecutar que usa la SPIDER AJAX en ZAP.\\
             
             Al ejecutarla en nuestra página web, nos encontramos con el siguiente listado de errores y fallos de configuración:
             \begin{figure}[H]
@@ -522,7 +526,7 @@
                         \includegraphics[width=\textwidth]{./img/vulnerabilidades/3.8/2.1.png}
                         \caption{Pipeline de CI/CD}
                     \end{figure}
-                    Este no es un pipeline completo con todas las pruebas unitarias ni la creación de las imágenes ni una despliegue como el que podría ser Kubernetes, pero sirve como ejemplo para este trabajo.
+                    Este yaml no es más que un ejemplo. La forma correcta de usar GitHub Actions con CI/CD seria mediante la utilización de pruebas unitarias para nuestro código y archivos de configuración para el despliegue de nuestro proyecto.
             \clearpage
         \section{Fallos en la monitorización de la seguridad}
             Los fallos en la monitorización de la seguridad se refieren a deficiencias o problemas en los sistemas y procesos diseñados para vigilar y evaluar la seguridad de una red, sistema informático, aplicación o entorno en general.
@@ -595,9 +599,15 @@
             Lo mismo occure con la base de datos MariaDB la cual solo es accesible mediante la web y no desde el exterior.
         \clearpage
     \chapter{Conclusiones}
-        Este proyecto ha constituido una valiosa oportunidad para constatar la vulnerabilidad intrínseca de las páginas web y servicios en línea cuando no se configuran adecuadamente. La experiencia adquirida ha demostrado ser esencial, destacando la necesidad crítica de abordar las deficiencias de seguridad que pueden comprometer la integridad y confidencialidad de los datos. En el transcurso de este proceso, hemos puesto a prueba no solo nuestras habilidades de programación, sino también nuestras capacidades de investigación, al enfrentarnos a la tarea de identificar no solo las vulnerabilidades en sí, sino de concebir métodos efectivos para su mitigación y resolución.\\
-        
-        La comparativa entre las pruebas de penetración realizadas y presentadas en este informe revela una transformación significativa en la seguridad de la plataforma. Los ataques previamente exitosos, que tradicionalmente se emplean contra las páginas web, han perdido su eficacia. Este resultado tangible subraya el éxito de nuestras estrategias de fortificación, evidenciando el impacto positivo de las medidas implementadas. La labor llevada a cabo no solo ha consistido en cerrar brechas de seguridad, sino también en desarrollar un entorno digital robusto y resistente, capaz de hacer frente los desafíos cada vez más sofisticados que plantea el panorama actual de amenazas cibernéticas. Este proyecto, en última instancia, ha fortalecido nuestra comprensión integral de la seguridad web y ha ampliado nuestras habilidades prácticas y teóricas en este campo de estudio crucial.\\
+    La comparativa entre las pruebas de penetración realizadas y presentadas en este informe revela una mejora significativa en la seguridad de la plataforma. Los ataques previamente exitosos, que tradicionalmente se emplean contra las páginas web, han perdido su eficacia.\\
+    
+    Mientras que en la primera auditoria conseguíamos acceder completamente y con varios métodos a la base de datos en la segunda auditoria enseguida vemos que las herramientas detectan los métodos que hemos implementado y no es capaz de realizar los ataques. También cabe mencionar la mitigación en las fugas de información de los servicios utilizados.\\
+    
+    Este resultado tangible subraya el éxito de nuestras estrategias de fortificación, evidenciando el impacto positivo de las medidas implementadas. La labor llevada a cabo no solo ha consistido en cerrar brechas de seguridad, sino también en desarrollar un entorno digital robusto y resistente, capaz de hacer frente los desafíos cada vez más sofisticados que plantea el panorama actual de amenazas cibernéticas.\\
+    
+    Este proyecto ha constituido una valiosa oportunidad para constatar la vulnerabilidad de las páginas web y servicios en línea cuando no se configuran adecuadamente. Destacando la necesidad crítica de abordar las deficiencias de seguridad que pueden comprometer la integridad y confidencialidad de los datos.\\
+    
+    En el transcurso de este proceso, hemos puesto a prueba no solo nuestras habilidades de programación, sino también nuestras capacidades de investigación, al enfrentarnos a la tarea de identificar no solo las vulnerabilidades en sí, sino de concebir métodos efectivos para su mitigación y resolución.\\
     \chapter{Bibliografía}
         \begin{itemize}
             \item OWASP. (2021). Informe de Vulnerabilidades. OWASP. \url{https://owasp.org/www-project-top-ten/}
