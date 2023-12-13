@@ -1,0 +1,20 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{\numberline {1}Introducción}{2}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Vulnerabilidades}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Rotura de control de acceso}{3}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Acceso mediante URL}{3}{subsection.2.1.1}%
+\contentsline {section}{\numberline {2.2}Fallos criptográficos}{4}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Sniffing}{4}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}MITM}{5}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}Inyecciones}{6}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}SQL Injection}{6}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Cross Site Scripting}{8}{subsection.2.3.2}%
+\contentsline {section}{\numberline {2.4}Configuración de seguridad insuficiente}{10}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Fuga de información}{10}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Enumeración de directorios}{11}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Fuerza bruta}{12}{subsection.2.4.3}%
+\contentsline {section}{\numberline {2.5}Componentes vulnerables y obsoletos}{13}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Vulnerabilidades mediante MF}{13}{subsection.2.5.1}%
+\contentsline {section}{\numberline {2.6}Fallos de identificación y autenticación}{14}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Invalidación de sesiones}{14}{subsection.2.6.1}%
+\contentsline {chapter}{\numberline {3}Bibliografia}{15}{chapter.3}%
