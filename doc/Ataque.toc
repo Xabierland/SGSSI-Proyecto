@@ -13,8 +13,8 @@
 \contentsline {subsection}{\numberline {2.4.1}Fuga de información}{12}{subsection.2.4.1}%
 \contentsline {subsection}{\numberline {2.4.2}Enumeración de directorios}{14}{subsection.2.4.2}%
 \contentsline {subsection}{\numberline {2.4.3}Fuerza bruta}{16}{subsection.2.4.3}%
-\contentsline {section}{\numberline {2.5}Componentes vulnerables y obsoletos}{17}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}Vulnerabilidades mediante MF}{17}{subsection.2.5.1}%
-\contentsline {section}{\numberline {2.6}Fallos de identificación y autenticación}{18}{section.2.6}%
-\contentsline {subsection}{\numberline {2.6.1}Invalidación de sesiones}{18}{subsection.2.6.1}%
-\contentsline {chapter}{\numberline {3}Bibliografia}{19}{chapter.3}%
+\contentsline {section}{\numberline {2.5}Componentes vulnerables y obsoletos}{18}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Vulnerabilidades mediante MF}{18}{subsection.2.5.1}%
+\contentsline {section}{\numberline {2.6}Fallos de identificación y autenticación}{19}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Invalidación de sesiones}{19}{subsection.2.6.1}%
+\contentsline {chapter}{\numberline {3}Bibliografia}{20}{chapter.3}%

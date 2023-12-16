@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.9.24) (preloaded format=pdflatex 2023.9.27)  14 DEC 2023 16:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.9.24) (preloaded format=pdflatex 2023.9.27)  16 DEC 2023 17:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -233,23 +233,45 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
-) (C:\Users\xabie\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+) (C:\Users\xabie\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+\lst@mode=\count281
+\lst@gtempboxa=\box59
+\lst@token=\toks25
+\lst@length=\count282
+\lst@currlwidth=\dimen154
+\lst@column=\count283
+\lst@pos=\count284
+\lst@lostspace=\dimen155
+\lst@width=\dimen156
+\lst@newlines=\count285
+\lst@lineno=\count286
+\lst@maxwidth=\dimen157
+ (C:\Users\xabie\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
+\c@lstnumber=\count287
+\lst@skipnumbers=\count288
+\lst@framebox=\box60
+) (C:\Users\xabie\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+File: listings.cfg 2023/02/27 1.9 listings configuration
+))
+Package: listings 2023/02/27 1.9 (Carsten Heinz)
+ (C:\Users\xabie\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
  (C:\Users\xabie\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count281
-\Gm@cntv=\count282
-\c@Gm@tempcnt=\count283
-\Gm@bindingoffset=\dimen154
-\Gm@wd@mp=\dimen155
-\Gm@odd@mp=\dimen156
-\Gm@even@mp=\dimen157
-\Gm@layoutwidth=\dimen158
-\Gm@layoutheight=\dimen159
-\Gm@layouthoffset=\dimen160
-\Gm@layoutvoffset=\dimen161
-\Gm@dimlist=\toks25
+\Gm@cnth=\count289
+\Gm@cntv=\count290
+\c@Gm@tempcnt=\count291
+\Gm@bindingoffset=\dimen158
+\Gm@wd@mp=\dimen159
+\Gm@odd@mp=\dimen160
+\Gm@even@mp=\dimen161
+\Gm@layoutwidth=\dimen162
+\Gm@layoutheight=\dimen163
+\Gm@layouthoffset=\dimen164
+\Gm@layoutvoffset=\dimen165
+\Gm@dimlist=\toks26
  (C:\Users\xabie\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
 
 Package hyperref Warning: Unexpected value for option `hidelinks'
@@ -257,8 +279,8 @@ Package hyperref Warning: Unexpected value for option `hidelinks'
 
 (C:\Users\xabie\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count284
-\l__pdf_internal_box=\box59
+\l__color_backend_stack_int=\count292
+\l__pdf_internal_box=\box61
 ) (Ataque.aux
 LaTeX Info: Redefining \. on input line 22.
 LaTeX Info: Redefining \% on input line 22.
@@ -287,17 +309,17 @@ LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
  (C:\Users\xabie\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count285
-\scratchdimen=\dimen162
-\scratchbox=\box60
-\nofMPsegments=\count286
-\nofMParguments=\count287
-\everyMPshowfont=\toks26
-\MPscratchCnt=\count288
-\MPscratchDim=\dimen163
-\MPnumerator=\count289
-\makeMPintoPDFobject=\count290
-\everyMPtoPDFconversion=\toks27
+\scratchcounter=\count293
+\scratchdimen=\dimen166
+\scratchbox=\box62
+\nofMPsegments=\count294
+\nofMParguments=\count295
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count296
+\MPscratchDim=\dimen167
+\MPnumerator=\count297
+\makeMPintoPDFobject=\count298
+\everyMPtoPDFconversion=\toks28
 ) (C:\Users\xabie\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -309,6 +331,7 @@ Package hyperref Info: Link coloring OFF on input line 14.
 \@outlinefile=\write3
 \openout3 = `Ataque.out'.
 
+\c@lstlisting=\count299
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -495,37 +518,22 @@ Package pdftex.def Info: ./img/vulnerabilidades/2.3/2.4.png  used on input line 
 [10
 
  <./img/vulnerabilidades/2.3/2.1.png> <./img/vulnerabilidades/2.3/2.3.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 188--189
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 190--191
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 192--193
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 194--195
+Underfull \hbox (badness 10000) in paragraph at lines 188--192
 
  []
 
 [11 <./img/vulnerabilidades/2.3/2.4.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 199--201
+Underfull \hbox (badness 10000) in paragraph at lines 195--197
 
  []
 
 <./img/vulnerabilidades/2.4/1.1.png, id=200, 691.08188pt x 278.54062pt>
 File: ./img/vulnerabilidades/2.4/1.1.png Graphic file (type png)
 <use ./img/vulnerabilidades/2.4/1.1.png>
-Package pdftex.def Info: ./img/vulnerabilidades/2.4/1.1.png  used on input line 210.
+Package pdftex.def Info: ./img/vulnerabilidades/2.4/1.1.png  used on input line 206.
 (pdftex.def)             Requested size: 443.57848pt x 178.78815pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 213--215
+Underfull \hbox (badness 10000) in paragraph at lines 209--211
 
  []
 
@@ -535,10 +543,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 213--215
 <./img/vulnerabilidades/2.4/1.2.png, id=208, 271.76532pt x 109.91063pt>
 File: ./img/vulnerabilidades/2.4/1.2.png Graphic file (type png)
 <use ./img/vulnerabilidades/2.4/1.2.png>
-Package pdftex.def Info: ./img/vulnerabilidades/2.4/1.2.png  used on input line 224.
+Package pdftex.def Info: ./img/vulnerabilidades/2.4/1.2.png  used on input line 220.
 (pdftex.def)             Requested size: 443.57848pt x 179.40594pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 227--229
+Underfull \hbox (badness 10000) in paragraph at lines 223--225
 
  []
 
@@ -548,7 +556,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 227--229
 <./img/vulnerabilidades/2.4/2.1.png, id=215, 718.93594pt x 582.67688pt>
 File: ./img/vulnerabilidades/2.4/2.1.png Graphic file (type png)
 <use ./img/vulnerabilidades/2.4/2.1.png>
-Package pdftex.def Info: ./img/vulnerabilidades/2.4/2.1.png  used on input line 240.
+Package pdftex.def Info: ./img/vulnerabilidades/2.4/2.1.png  used on input line 236.
 (pdftex.def)             Requested size: 443.57848pt x 359.5133pt.
  [14
 
@@ -556,24 +564,68 @@ Package pdftex.def Info: ./img/vulnerabilidades/2.4/2.1.png  used on input line 
 <./img/vulnerabilidades/2.4/2.2.png, id=222, 703.87968pt x 703.12688pt>
 File: ./img/vulnerabilidades/2.4/2.2.png Graphic file (type png)
 <use ./img/vulnerabilidades/2.4/2.2.png>
-Package pdftex.def Info: ./img/vulnerabilidades/2.4/2.2.png  used on input line 248.
+Package pdftex.def Info: ./img/vulnerabilidades/2.4/2.2.png  used on input line 244.
 (pdftex.def)             Requested size: 443.57848pt x 443.10101pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 251--254
+Underfull \hbox (badness 10000) in paragraph at lines 247--250
 
  []
 
 [15
 
- <./img/vulnerabilidades/2.4/2.2.png>] [16
+ <./img/vulnerabilidades/2.4/2.2.png>]
+<./img/vulnerabilidades/2.4/3.1.png, id=229, 1430.34375pt x 155.83218pt>
+File: ./img/vulnerabilidades/2.4/3.1.png Graphic file (type png)
+<use ./img/vulnerabilidades/2.4/3.1.png>
+Package pdftex.def Info: ./img/vulnerabilidades/2.4/3.1.png  used on input line 260.
+(pdftex.def)             Requested size: 443.57848pt x 48.32649pt.
+<./img/vulnerabilidades/2.4/3.2.png, id=230, 499.11469pt x 285.31593pt>
+File: ./img/vulnerabilidades/2.4/3.2.png Graphic file (type png)
+<use ./img/vulnerabilidades/2.4/3.2.png>
+Package pdftex.def Info: ./img/vulnerabilidades/2.4/3.2.png  used on input line 274.
+(pdftex.def)             Requested size: 443.57848pt x 253.57773pt.
+ [16
 
-] [17
+ <./img/vulnerabilidades/2.4/3.1.png> <./img/vulnerabilidades/2.4/3.2.png>]
+<./img/vulnerabilidades/2.4/3.3.png, id=239, 794.2172pt x 203.25937pt>
+File: ./img/vulnerabilidades/2.4/3.3.png Graphic file (type png)
+<use ./img/vulnerabilidades/2.4/3.3.png>
+Package pdftex.def Info: ./img/vulnerabilidades/2.4/3.3.png  used on input line 285.
+(pdftex.def)             Requested size: 443.57848pt x 113.52362pt.
+ [17
 
-] [18
+ <./img/vulnerabilidades/2.4/3.3.png>] [18
+
+] [19
 
 ]
 Cap\'{\i }tulo 3.
-[19
+
+Overfull \hbox (22.25359pt too wide) in paragraph at lines 299--300
+[]\OT1/cmr/m/n/10 OWASP. (2021). In-for-me de Vul-ne-ra-bi-li-da-des. OWASP. []$\OT1/cmtt/m/n/10 https : / / owasp . org / www-[]project-[]top-[]ten/$[] 
+ []
+
+
+Overfull \hbox (13.94795pt too wide) in paragraph at lines 302--303
+[]\OT1/cmr/m/n/10 sqlmap. (2017). Do-cu-men-ta-ci^^Son de sql-map. sql-map. []$\OT1/cmtt/m/n/10 https : / / github . com / sqlmapproject / sqlmap /
+ []
+
+
+Overfull \hbox (17.50381pt too wide) in paragraph at lines 304--305
+[]\OT1/cmr/m/n/10 metasploit. (2023). Do-cu-men-ta-ci^^Son de me-tas-ploit. Ra-pid7. []$\OT1/cmtt/m/n/10 https : / / docs . rapid7 . com / metasploit/$[] 
+ []
+
+
+Overfull \hbox (4.78114pt too wide) in paragraph at lines 307--308
+[]\OT1/cmr/m/n/10 hydra. (2023). Do-cu-men-ta-ci^^Son de hy-dra. THC. []$\OT1/cmtt/m/n/10 https : / / github . com / vanhauser-[]thc / thc-[]hydra$[] 
+ []
+
+
+Overfull \hbox (12.80934pt too wide) in paragraph at lines 308--309
+[]\OT1/cmr/m/n/10 DirBuster. (2023). Do-cu-men-ta-ci^^Son de Dir-Bus-ter. OWASP. []$\OT1/cmtt/m/n/10 https : / / owasp . org / www-[]pdf-[]archive /
+ []
+
+[20
 
 
 ] (Ataque.aux
@@ -588,17 +640,17 @@ Package rerunfilecheck Info: File `Ataque.out' has not changed.
 (rerunfilecheck)             Checksum: 3DD23BEA38F0C931044F2E25AE2D2FB5;3114.
  ) 
 Here is how much of TeX's memory you used:
- 11470 strings out of 475248
- 183518 string characters out of 5757813
- 1925785 words of memory out of 5000000
- 32808 multiletter control sequences out of 15000+600000
+ 12853 strings out of 475248
+ 204128 string characters out of 5757813
+ 1927785 words of memory out of 5000000
+ 34178 multiletter control sequences out of 15000+600000
  560766 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,7n,79p,367b,629s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/xabie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/xabie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/xabie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/xabie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/xabie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/xabie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/xabie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/latxfont/lasy10.pfb>
-Output written on Ataque.pdf (20 pages, 607798 bytes).
+Output written on Ataque.pdf (21 pages, 676024 bytes).
 PDF statistics:
- 292 PDF objects out of 1000 (max. 8388607)
- 61 named destinations out of 1000 (max. 500000)
- 243 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 322 PDF objects out of 1000 (max. 8388607)
+ 65 named destinations out of 1000 (max. 500000)
+ 258 words of extra memory for PDF output out of 10000 (max. 10000000)
 

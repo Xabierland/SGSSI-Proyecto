@@ -1,15 +1,15 @@
 \documentclass{report}
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{graphicx, longtable, float, titlesec, hyperref, xcolor}
+\usepackage{graphicx, longtable, float, titlesec, hyperref, xcolor, listings}
 \usepackage[margin=3cm]{geometry}
 
 \hypersetup{
     hidelinks = true
 }
 
-\titleformat{\chapter}[display]
-  {\normalfont\bfseries}{}{0pt}{\Huge}
+\titleformat{\chapter}[block]
+  {\normalfont\Huge\bfseries}{\thechapter}{20pt}{\Huge}
 
 \begin{document}
     \begin{titlepage}
@@ -185,14 +185,10 @@
                         \end{figure}
                     \end{itemize}
                 \end{enumerate}
-                Este tipo de vulnerabilidad es muy peligrosa ya que permite a un atacante ejecutar codigo en el navegador de la victima y realizar acciones en su nombre.\\
-
-                Tambien hemos visto que podemos redirigir a la victima a una pagina maliciosa, lo que nos permitiria realizar un ataque de tipo Phishing.\\
-
-                Aunque la carga de la imagen no parezca muy peligrosa, esta, en realidad puede darnos informacion como la IP de los usuarios que visitan la pagina ya que para cargar dicha imagen se realiza una peticion al servidor donde esta alojada dejando su IP en el camino.\\
-
+                Este tipo de vulnerabilidad es muy peligrosa ya que permite a un atacante ejecutar codigo en el navegador de la victima y realizar acciones en su nombre.
+                Tambien hemos visto que podemos redirigir a la victima a una pagina maliciosa, lo que nos permitiria realizar un ataque de tipo Phishing.
+                Aunque la carga de la imagen no parezca muy peligrosa, esta, en realidad puede darnos informacion como la IP de los usuarios que visitan la pagina ya que para cargar dicha imagen se realiza una peticion al servidor donde esta alojada dejando su IP en el camino.
                 En este caso, hemos visto que podemos llegar incluso a ver la cookie de la victima, lo que nos permitiria hacer un ataque de tipo Session Hijacking.\\
-                
                 \clearpage
         \section{Configuración de seguridad insuficiente}
             \subsection{Fuga de información}
@@ -251,11 +247,47 @@
                 Como podemos ver, DirBuster nos ha dado una lista de directorios que existen en el servidor.
                 Aunque en esta lista no esten todos los directorios que existen en el servidor, si que nos da una idea de que directorios existen y cuales no.
                 Esta informacion es muy valiosa para un atacante ya que le permite saber que directorios puede atacar para intentar obtener informacion sensible.\\
-                
-
             \clearpage
             \subsection{Fuerza bruta}
-            \clearpage
+                Fuerza bruta es un ataque que consiste en probar todas las combinaciones posibles de un conjunto de caracteres para obtener una contraseña.
+                En este caso, vamos a realizar un ataque de fuerza bruta para obtener la contraseña de un usuario.
+                Para ello, vamos a utilizar la herramienta Hydra.
+                Hydra es una herramienta que nos permite realizar ataques de fuerza bruta a servicios como SSH, FTP, HTTP, etc.
+                Este ataque es posible debido a que la pagina web no tiene ninguna proteccion contra este tipo de ataques.
+                Para empezar, vamos a acceder a la pagina web donde podemos ver que existen publicaciones de un usuario llamado 'ImanolMM'.
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=1\textwidth]{./img/vulnerabilidades/2.4/3.1.png}
+                    \caption{Publicaciones de ImanolMM}
+                \end{figure}
+                Con esta informacion, vamos a realizar el ataque de fuerza bruta para obtener la contraseña de este usuario.
+                Para ello, vamos a crear un diccionario mediante la herramienta cupp.
+                Cupp es una herramienta que nos permite crear diccionarios personalizados para realizar ataques de fuerza bruta.
+                En este caso, vamos a crear un diccionario con el nombre del usuario y su fecha de nacimiento.
+                Esta informacion, en nuestro caso, viene de la injección de SQL que hemos realizado anteriormente.
+                De todas formas, esta informacion se puede obtener de redes sociales como Facebook, Twitter, etc.
+                \begin{center}
+                    \texttt{cupp -i}
+                \end{center}
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=1\textwidth]{./img/vulnerabilidades/2.4/3.2.png}
+                    \caption{Creación de diccionario}
+                \end{figure}
+                \clearpage
+                Con el diccionario creado, vamos a realizar el ataque de fuerza bruta.
+                Para ello, como he comentado, usaremos la herramienta Hydra.
+                \begin{center}
+                    \texttt{hydra -l ImanolMM -P imanol.txt localhost -s 81 http-post-form "/submit.php:nombre=\&telefono=\&dni=\&email=\&nacimiento=\&\\usuario=\^USER\^ \&passwd=\^PASS\^ \&tiporegistro=signin:Usuario o contraseña incorrecta"}
+                \end{center}
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=1\textwidth]{./img/vulnerabilidades/2.4/3.3.png}
+                    \caption{Ataque de fuerza bruta}
+                \end{figure}
+                Como podemos ver, el ataque ha sido exitoso y hemos obtenido la contraseña del usuario.
+                Obviamente, este ataque ha sido muy sencillo ya que se utiliza contraseñas muy debiles pero nos sirve para ver que es posible realizar este tipo de ataques.
+                \clearpage
         \section{Componentes vulnerables y obsoletos}
             \subsection{Vulnerabilidades mediante MF}
             \clearpage
@@ -263,4 +295,19 @@
             \subsection{Invalidación de sesiones}
             \clearpage
     \chapter{Bibliografia}
+    \begin{itemize}
+        \item OWASP. (2021). Informe de Vulnerabilidades. OWASP. \url{https://owasp.org/www-project-top-ten/}
+        \item GPT-3.5. (2023). Respuestas a preguntas varias. OpenAI. \url{https://www.openai.com/}
+        \item GitHub Copilot. (2022). Autocompletado. GitHub. \url{https://github.com/features/copilot}
+        \item sqlmap. (2017). Documentación de sqlmap. sqlmap. \url{https://github.com/sqlmapproject/sqlmap/wiki/}
+        \item ZAP. (2023). Documentación de ZAP. OWASP. \url{https://www.zaproxy.org/docs/}
+        \item metasploit. (2023). Documentación de metasploit. Rapid7. \url{https://docs.rapid7.com/metasploit/}
+        \item nmap. (2020). Documentación de nmap. nmap. \url{https://nmap.org/man/es/}
+        \item cupp. (2020). Documentación de cupp. cupp. \url{https://github.com/Mebus/cupp}
+        \item hydra. (2023). Documentación de hydra. THC. \url{https://github.com/vanhauser-thc/thc-hydra}
+        \item DirBuster. (2023). Documentación de DirBuster. OWASP. \url{https://owasp.org/www-pdf-archive/DirBuster_OWASP-London_September-2008.pdf}
+        \item curl. (2023). Documentación de curl. curl. \url{https://curl.se/docs/}
+        \item Wireshark. (2023). Documentación de Wireshark. Wireshark. \url{https://www.wireshark.org/docs/}
+        \item Burp Suite. (2023). Documentación de Burp Suite. PortSwigger. \url{https://portswigger.net/burp/documentation}
+    \end{itemize}
 \end{document}
