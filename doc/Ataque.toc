@@ -6,15 +6,16 @@
 \contentsline {section}{\numberline {2.2}Fallos criptográficos}{4}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Sniffing}{4}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}MITM}{5}{subsection.2.2.2}%
-\contentsline {section}{\numberline {2.3}Inyecciones}{8}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}SQL Injection}{8}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Cross Site Scripting}{10}{subsection.2.3.2}%
-\contentsline {section}{\numberline {2.4}Configuración de seguridad insuficiente}{12}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Fuga de información}{12}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}Enumeración de directorios}{14}{subsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.4.3}Fuerza bruta}{16}{subsection.2.4.3}%
-\contentsline {section}{\numberline {2.5}Componentes vulnerables y obsoletos}{18}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}Vulnerabilidades mediante MF}{18}{subsection.2.5.1}%
-\contentsline {section}{\numberline {2.6}Fallos de identificación y autenticación}{19}{section.2.6}%
-\contentsline {subsection}{\numberline {2.6.1}Invalidación de sesiones}{19}{subsection.2.6.1}%
-\contentsline {chapter}{\numberline {3}Bibliografia}{20}{chapter.3}%
+\contentsline {subsection}{\numberline {2.2.3}Session Hijacking}{8}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Inyecciones}{12}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}SQL Injection}{12}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Cross Site Scripting}{14}{subsection.2.3.2}%
+\contentsline {section}{\numberline {2.4}Configuración de seguridad insuficiente}{16}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Fuga de información}{16}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Enumeración de directorios}{18}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Fuerza bruta}{20}{subsection.2.4.3}%
+\contentsline {section}{\numberline {2.5}Componentes vulnerables y obsoletos}{22}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Explotacion mediante Metasploit}{22}{subsection.2.5.1}%
+\contentsline {section}{\numberline {2.6}Fallos de identificación y autenticación}{24}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Invalidación de sesiones}{24}{subsection.2.6.1}%
+\contentsline {chapter}{\numberline {3}Bibliografia}{26}{chapter.3}%

