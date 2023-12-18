@@ -18,7 +18,3 @@ Proyecto de la asignatura SGSSI del curso 2023-2024
 * Mikel Rivera
 * Diego Nido
 * Unax Zardoya
-
-### Vulnerabilidades
-
-* [ ] 
