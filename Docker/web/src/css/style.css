@@ -1,0 +1,162 @@
+/*Estilo de toda la pagina*/
+html {
+    background-color: #131313;
+    font-family: 'Hack Nerd Font', monospace;
+    margin-right: 20%; /* Margen de 10 píxeles a la derecha */
+    margin-left: 20%; /* Margen de 10 píxeles a la izquierda */
+}
+
+header h1 {
+    color: #bebebe;
+    text-align: center
+}
+
+header h2 {
+    color: #8e8e8e;
+    text-align:center;
+}
+
+/* Estilo para el nav */
+nav {
+    color: #FFA500; /* Texto naranja */
+    padding: 10px 0; /* Espaciado interior arriba y abajo */
+}
+
+/* Estilo para la lista de navegación */
+nav ul {
+    list-style-type: none; /* Quita los marcadores de lista */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Muestra los elementos en línea */
+    justify-content: center; /* Centra horizontalmente los elementos */
+}
+
+/* Estilo para los elementos de la lista */
+nav li {
+    margin: 0 20px; /* Espaciado horizontal entre elementos */
+}
+
+/* Estilo para los enlaces en el nav */
+nav a {
+    text-decoration: none; /* Quita la subrayado de los enlaces */
+    color: #FFA500; /* Color del texto naranja */
+    font-weight: bold; /* Texto en negrita */
+    transition: color 0.3s; /* Transición de color suave */
+}
+
+/* Estilo para cambiar el color del enlace al pasar el mouse */
+nav a:hover {
+    color: #FFF; /* Cambia el color del texto a blanco al pasar el mouse */
+}
+
+#content{
+    text-align: center;
+    background-color: #86868b;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* Estilos para los formularios */
+.form {
+    max-width: 400px; /* Ancho máximo para el formulario */
+    margin: 0 auto; /* Centrar el formulario en el contenedor */
+}
+
+.form div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px; /* Espacio entre cada par de label e input */
+}
+
+.form table label {
+    width: 50%; /* Ocupa todo el ancho disponible */
+    text-align: right; /* Alinea el texto del label a la derecha */
+    margin-bottom: 5px; /* Espacio entre el label y el input */
+}
+
+.form table input {
+    width: 50%;
+    background-color: #FFF;
+    color: #131313;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 5px; /* Espaciado interior del input */
+}
+
+.form table input::placeholder {
+    color: #86868b;
+}
+
+.form input {
+    width: 50%;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 5px; /* Espaciado interior del input */
+}
+
+
+/* Estilos para la tabla */
+.catalogo table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+/* Estilo para la fila de encabezados (titulos) */
+.catalogo table th {
+    background-color: #333; /* Color de fondo para la fila de encabezados */
+    color: white; /* Texto blanco para los encabezados */
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #000; /* Bordes de color negro */
+}
+
+.catalogo table th:first-child {
+    border-top-left-radius: 8px; /* Añade esquinas redondeadas al primer encabezado */
+}
+
+.catalogo table th:last-child {
+    border-top-right-radius: 8px; /* Añade esquinas redondeadas al último encabezado */
+}
+
+.catalogo table td {
+    padding: 8px;
+    text-align: left;
+    width: 50%;
+    border: 1px solid #000; /* Bordes de color negro */
+}
+
+/* Estilo para filas pares */
+.catalogo table tr:nth-child(even) {
+    background-color: #ddd; /* Fondo gris para filas pares */
+}
+
+/* Estilo para filas impares */
+.catalogo table tr:nth-child(odd) {
+    background-color: #FFA500; /* Fondo naranja para filas impares */
+    color: white; /* Texto blanco en filas impares */
+}
+
+/* Estilo para la barra de búsqueda */
+#buscador {
+    padding: 8px;
+    margin-bottom: 10px; /* Agrega espacio inferior para separar la barra de búsqueda de la tabla */
+    width: 90%;
+    border: 1px solid #000; /* Bordes de color negro */
+    border-radius: 8px; /* Añade esquinas redondeadas */
+}
+
+/* Estilo para el texto dentro de la barra de búsqueda */
+#buscador::placeholder {
+    color: #999; /* Color del texto de marcador de posición */
+}
+
+footer 
+{
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+footer a {
+    color: #86868b;
+}
+
